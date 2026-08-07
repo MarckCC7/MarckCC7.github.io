@@ -1,0 +1,155 @@
+/* ============================================================================
+   COMPONENT PRIMITIVES
+   ----------------------------------------------------------------------------
+   Only patterns repeated across many components live here. Anything used once
+   stays inline in its component — this file must not become a second stylesheet.
+   ========================================================================== */
+
+@layer components {
+  /* — Glassmorphism ————————————————————————————————————————
+     Discreet by design: a whisper of fill, a hairline, one inner highlight.
+
+     Standard property ONLY — do not add `-webkit-backdrop-filter` back.
+     esbuild's CSS minifier collapses the two adjacent declarations and keeps
+     the prefixed one, which current Chrome no longer recognises. The result is
+     a bug that appears only in production builds: every glass surface silently
+     loses its blur. Vite adds whatever prefixes `build.cssTarget` requires. */
+  .glass {
+    background-color: var(--glass-fill);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(18px) saturate(140%);
+    box-shadow: var(--shadow-glass);
+  }
+
+  .glass-strong {
+    background-color: var(--glass-fill-strong);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(28px) saturate(160%);
+    box-shadow: var(--shadow-glass);
+  }
+
+  /* — Gradient text ————————————————————————————————————————— */
+  .text-gradient {
+    background-image: linear-gradient(
+      135deg,
+      var(--text-primary) 0%,
+      var(--text-primary) 45%,
+      var(--moss-300) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .text-gradient-azure {
+    background-image: linear-gradient(135deg, var(--azure-300) 0%, var(--moss-300) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  /* — Hairline separator that fades at both ends ————————————— */
+  .hairline {
+    height: 1px;
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      var(--line-strong) 18%,
+      var(--line-strong) 82%,
+      transparent
+    );
+  }
+
+  /* — Animated conic border used on premium cards ———————————— */
+  .ring-conic::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: conic-gradient(
+      from var(--angle, 0deg),
+      transparent 0%,
+      var(--moss-300) 12%,
+      transparent 26%,
+      transparent 60%,
+      var(--azure-400) 74%,
+      transparent 88%
+    );
+    /* Standard mask properties only — see the note on `.glass` above. This is
+       the border-as-mask trick: paint the gradient over the whole box, then
+       punch out everything except the 1px padding ring. */
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+  }
+
+  .ring-conic:hover::before,
+  .ring-conic:focus-within::before {
+    opacity: 1;
+    animation: spin-angle 4s linear infinite;
+  }
+
+  /* — Skeleton shimmer —————————————————————————————————————— */
+  .shimmer {
+    background-image: linear-gradient(
+      100deg,
+      transparent 20%,
+      var(--glass-fill-strong) 50%,
+      transparent 80%
+    );
+    background-size: 200% 100%;
+  }
+}
+
+@layer utilities {
+  /* Hides an element visually while keeping it for screen readers. */
+  .sr-only-focusable:not(:focus):not(:focus-within) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  /* Promotes an element to its own layer without the paint cost of will-change. */
+  .gpu {
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+  }
+
+  .mask-fade-b {
+    mask-image: linear-gradient(to bottom, #000 65%, transparent 100%);
+  }
+
+  .mask-fade-x {
+    mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  }
+
+  .text-pixel {
+    font-family: var(--font-pixel);
+    letter-spacing: 0;
+    line-height: 1.6;
+  }
+}
+
+/* `--angle` must be registered for the conic border to animate smoothly;
+   un-registered custom properties are not interpolatable. */
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes spin-angle {
+  to {
+    --angle: 360deg;
+  }
+}

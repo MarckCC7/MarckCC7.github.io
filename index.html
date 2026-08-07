@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+    <title>Marco Collado — The Digital Garden</title>
+    <meta
+      name="description"
+      content="El jardín digital de Marco Collado: proyectos, aprendizajes y experimentos de un estudiante de Ingeniería de Software construyendo software que resuelve problemas reales."
+    />
+    <meta name="author" content="Marco Collado" />
+    <link rel="canonical" href="https://marcocollado.dev/" />
+
+    <!-- Icons & PWA -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#070908" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f7faf8" media="(prefers-color-scheme: light)" />
+    <meta name="color-scheme" content="dark light" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Marco Collado" />
+    <meta property="og:title" content="Marco Collado — The Digital Garden" />
+    <meta
+      property="og:description"
+      content="Proyectos, aprendizajes y experimentos de un estudiante de Ingeniería de Software construyendo software que resuelve problemas reales."
+    />
+    <meta property="og:url" content="https://marcocollado.dev/" />
+    <meta property="og:image" content="https://marcocollado.dev/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="es_ES" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Marco Collado — The Digital Garden" />
+    <meta
+      name="twitter:description"
+      content="Proyectos, aprendizajes y experimentos de un estudiante de Ingeniería de Software."
+    />
+    <meta name="twitter:image" content="https://marcocollado.dev/og-image.png" />
+
+    <!--
+      Structured data lives in the static HTML, not in React: crawlers that do
+      not execute JavaScript still get it, and it costs nothing at runtime.
+    -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Marco Collado",
+        "url": "https://marcocollado.dev",
+        "jobTitle": "Estudiante de Ingeniería de Software",
+        "description": "Estudiante de Ingeniería de Software construyendo software que resuelve problemas reales.",
+        "knowsAbout": [
+          "Ingeniería de software",
+          "React",
+          "TypeScript",
+          "Inteligencia artificial",
+          "Desarrollo de videojuegos",
+          "Redes"
+        ]
+      }
+    </script>
+
+    <!--
+      Theme is applied before the first paint. Without this, a visitor who chose
+      light mode sees a dark flash on every load — the classic dark-mode bug.
+    -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('garden:theme');
+          var theme = stored ? JSON.parse(stored) : 'dark';
+          document.documentElement.dataset.theme = theme === 'light' ? 'light' : 'dark';
+
+          if (JSON.parse(localStorage.getItem('garden:pixel-mode') || 'false')) {
+            document.documentElement.dataset.pixel = 'on';
+          }
+        } catch (error) {
+          document.documentElement.dataset.theme = 'dark';
+        }
+      })();
+    </script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <noscript>
+      <div style="padding: 3rem 1.5rem; font-family: system-ui, sans-serif; color: #ecf1ee">
+        <h1 style="font-size: 1.5rem">Marco Collado — The Digital Garden</h1>
+        <p style="max-width: 42rem; line-height: 1.7; color: #97a39d">
+          Este jardín necesita JavaScript para crecer. Si prefieres no activarlo, escríbeme a
+          <a href="mailto:marcocdo65@gmail.com" style="color: #8fcaac">marcocdo65@gmail.com</a> y te
+          cuento en qué estoy trabajando.
+        </p>
+      </div>
+    </noscript>
+
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

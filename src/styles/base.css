@@ -1,0 +1,162 @@
+/* ============================================================================
+   BASE LAYER — element defaults
+   ========================================================================== */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    border-color: var(--line-subtle);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* Lenis drives scrolling; native smooth-scroll would fight it. */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  html.lenis {
+    scroll-behavior: auto;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    background-color: var(--surface-base);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'ss01';
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: var(--moss-400);
+    color: var(--text-inverse);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--azure-400);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Focus rings are for keyboard users; pointer clicks stay clean. */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  img,
+  svg,
+  video,
+  canvas {
+    display: block;
+    max-width: 100%;
+  }
+
+  /* — Scrollbar ————————————————————————————————————————————— */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--surface-base);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--graphite-700);
+    border: 2px solid var(--surface-base);
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--moss-600);
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--graphite-700) var(--surface-base);
+  }
+}
+
+/* ============================================================================
+   PIXEL MODE — hidden easter egg (see `usePixelMode`)
+   Turns the garden into a 16-bit RPG without breaking the layout.
+   ========================================================================== */
+
+[data-pixel='on'] {
+  --font-display: var(--font-pixel);
+  --grain-opacity: 0.09;
+}
+
+[data-pixel='on'] h1,
+[data-pixel='on'] h2,
+[data-pixel='on'] h3 {
+  letter-spacing: 0;
+  line-height: 1.4;
+  text-wrap: wrap;
+}
+
+[data-pixel='on'] img,
+[data-pixel='on'] svg,
+[data-pixel='on'] canvas {
+  image-rendering: pixelated;
+}
+
+[data-pixel='on'] *,
+[data-pixel='on'] *::before,
+[data-pixel='on'] *::after {
+  border-radius: 0 !important;
+}
+
+/* ============================================================================
+   ACCESSIBILITY — motion is a garnish, never a requirement
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}

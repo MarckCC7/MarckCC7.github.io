@@ -1,0 +1,152 @@
+/* ============================================================================
+   DESIGN TOKENS — The Digital Garden
+   ----------------------------------------------------------------------------
+   This is the single source of truth for the whole visual language.
+   `tailwind.config.js` maps every utility class onto these variables, and the
+   canvas backgrounds read them at runtime, so changing a value here restyles
+   the entire site — UI, illustrations and particles included.
+
+   Dark is the default. Light is an opt-in override on [data-theme="light"].
+   ========================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  /* — Surfaces: soil at night ————————————————————————————————— */
+  --surface-base: #070908;
+  --surface-raised: #0c100e;
+  --surface-elevated: #121714;
+  --surface-overlay: #171d1a;
+
+  /* — Text ————————————————————————————————————————————————— */
+  --text-primary: #ecf1ee;
+  --text-secondary: #97a39d;
+  --text-muted: #67736d;
+  --text-inverse: #0a0d0c;
+
+  /* — Hairlines ———————————————————————————————————————————— */
+  --line-subtle: rgb(236 241 238 / 6%);
+  --line-default: rgb(236 241 238 / 10%);
+  --line-strong: rgb(236 241 238 / 18%);
+
+  /* — Moss: growth, the garden, "learned" ————————————————————— */
+  --moss-50: #f0f8f3;
+  --moss-100: #dcefe4;
+  --moss-200: #b8deca;
+  --moss-300: #8fcaac;
+  --moss-400: #66b38c;
+  --moss-500: #45996f;
+  --moss-600: #327c58;
+  --moss-700: #245f43;
+
+  /* — Azure: actions, links, focus ————————————————————————————— */
+  --azure-200: #c3d6ff;
+  --azure-300: #9cbaff;
+  --azure-400: #7a9eff;
+  --azure-500: #5b84fb;
+  --azure-600: #4066dc;
+  --azure-700: #2e4cae;
+
+  /* — Ember: in progress, warm highlights ————————————————————— */
+  --ember-300: #f0ce8e;
+  --ember-400: #e3b269;
+  --ember-500: #ce9645;
+
+  /* — Graphite: neutral scaffolding ——————————————————————————— */
+  --graphite-50: #f5f7f6;
+  --graphite-100: #e7ebe9;
+  --graphite-200: #cbd3cf;
+  --graphite-300: #a7b2ad;
+  --graphite-400: #7d8a85;
+  --graphite-500: #5c6864;
+  --graphite-600: #464f4b;
+  --graphite-700: #343b38;
+  --graphite-800: #242a27;
+  --graphite-900: #171b19;
+  --graphite-950: #0d100e;
+
+  /* — Glass ———————————————————————————————————————————————— */
+  --glass-fill: rgb(236 241 238 / 3.5%);
+  --glass-fill-strong: rgb(236 241 238 / 6%);
+  --glass-border: rgb(236 241 238 / 9%);
+  --glass-highlight: rgb(255 255 255 / 7%);
+
+  /* — Elevation ——————————————————————————————————————————— */
+  --shadow-glass: inset 0 1px 0 0 var(--glass-highlight), 0 24px 60px -28px rgb(0 0 0 / 82%);
+  --shadow-lift: 0 34px 68px -30px rgb(0 0 0 / 88%);
+  --shadow-glow: 0 0 0 1px rgb(91 132 251 / 30%), 0 20px 48px -20px rgb(91 132 251 / 52%);
+  --shadow-glow-moss: 0 0 0 1px rgb(143 202 172 / 26%), 0 20px 48px -20px rgb(102 179 140 / 44%);
+
+  /* — Ambient light: drives the animated background ——————————— */
+  --ambient-a: rgb(102 179 140 / 16%);
+  --ambient-b: rgb(91 132 251 / 14%);
+  --ambient-c: rgb(143 202 172 / 8%);
+  --grain-opacity: 0.032;
+  --particle-alpha: 0.5;
+
+  /* — Typography ——————————————————————————————————————————
+     `-apple-system` sits early on purpose: Apple devices render SF Pro
+     natively, which is the only legally clean way to ship it.            */
+  --font-sans:
+    'Inter Variable', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', system-ui,
+    sans-serif;
+  --font-display:
+    'Geist Variable', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter Variable',
+    system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-pixel: 'Press Start 2P', 'Courier New', monospace;
+
+  /* — Layout ——————————————————————————————————————————————— */
+  --nav-height: 4.5rem;
+  --shell-padding: clamp(1.25rem, 0.5rem + 2.5vw, 2.5rem);
+}
+
+/* ============================================================================
+   LIGHT THEME — "the garden at noon"
+   Same hierarchy, inverted luminance. Accents darken so contrast holds.
+   ========================================================================== */
+
+[data-theme='light'] {
+  color-scheme: light;
+
+  --surface-base: #f7faf8;
+  --surface-raised: #ffffff;
+  --surface-elevated: #ffffff;
+  --surface-overlay: #f1f5f2;
+
+  --text-primary: #101613;
+  --text-secondary: #4c5a54;
+  --text-muted: #77837d;
+  --text-inverse: #f7faf8;
+
+  --line-subtle: rgb(16 22 19 / 7%);
+  --line-default: rgb(16 22 19 / 12%);
+  --line-strong: rgb(16 22 19 / 20%);
+
+  --moss-300: #327c58;
+  --moss-400: #2b6b4c;
+  --moss-500: #245f43;
+
+  --azure-300: #3f63d6;
+  --azure-400: #3357c9;
+  --azure-500: #2b4bb0;
+
+  --ember-300: #a9762a;
+  --ember-400: #96681f;
+
+  --glass-fill: rgb(255 255 255 / 62%);
+  --glass-fill-strong: rgb(255 255 255 / 82%);
+  --glass-border: rgb(16 22 19 / 8%);
+  --glass-highlight: rgb(255 255 255 / 90%);
+
+  --shadow-glass: inset 0 1px 0 0 var(--glass-highlight), 0 18px 44px -26px rgb(16 22 19 / 22%);
+  --shadow-lift: 0 28px 56px -30px rgb(16 22 19 / 26%);
+  --shadow-glow: 0 0 0 1px rgb(43 75 176 / 22%), 0 18px 40px -22px rgb(43 75 176 / 32%);
+  --shadow-glow-moss: 0 0 0 1px rgb(43 107 76 / 20%), 0 18px 40px -22px rgb(43 107 76 / 28%);
+
+  --ambient-a: rgb(102 179 140 / 22%);
+  --ambient-b: rgb(91 132 251 / 16%);
+  --ambient-c: rgb(143 202 172 / 14%);
+  --grain-opacity: 0.02;
+  --particle-alpha: 0.35;
+}

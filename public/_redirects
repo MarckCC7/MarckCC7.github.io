@@ -1,0 +1,2 @@
+# Netlify: SPA fallback. Without this, refreshing /projects returns a 404.
+/*  /index.html  200

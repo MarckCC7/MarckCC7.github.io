@@ -1,0 +1,17 @@
+/* ============================================================================
+   THE DIGITAL GARDEN — stylesheet entry point
+   ----------------------------------------------------------------------------
+   Import order is load-bearing:
+     1. tailwindcss  → sets up the cascade layers everything else slots into
+     2. tokens       → custom properties referenced by the Tailwind config
+     3. base         → element defaults
+     4. utilities    → repeated component primitives
+   ========================================================================== */
+
+@import 'tailwindcss';
+
+@import './tokens.css';
+@import './base.css';
+@import './utilities.css';
+
+@config '../../tailwind.config.js';
