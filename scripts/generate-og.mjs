@@ -147,6 +147,81 @@ function iconSvg(size, { padded = false } = {}) {
 </svg>`;
 }
 
+/* ── Avatar ─────────────────────────────────────────────────────────────── */
+
+/**
+ * Foto de perfil para GitHub, LinkedIn y cualquier sitio que pida un avatar.
+ *
+ * Tres decisiones que lo diferencian de `iconSvg`:
+ *
+ *  1. **Se recorta en círculo.** GitHub, LinkedIn y casi todos lo hacen. Todo
+ *     el contenido cabe dentro del círculo inscrito, con margen: la diagonal
+ *     desde el centro hasta la esquina del brote es 210 px sobre un radio de
+ *     256. Nada vive en las esquinas, porque las esquinas se pierden.
+ *
+ *  2. **El brote es mucho más grueso.** En los comentarios de GitHub esto se
+ *     ve a 40 px. Los píxeles finos del favicon ahí se convierten en papilla;
+ *     con celdas grandes la silueta aguanta.
+ *
+ *  3. **Fondo a sangre, sin borde.** Un borde decorativo se comería el recorte
+ *     circular de forma distinta en cada plataforma.
+ */
+function avatarSvg(size) {
+  // Las coordenadas se escriben siempre sobre un lienzo de 512 y el viewBox
+  // hace el escalado: un solo juego de números que ajustar, salga a 512 o a
+  // 1024.
+  return `
+<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="36%" r="74%">
+      <stop offset="0%" stop-color="#151c18"/>
+      <stop offset="100%" stop-color="${C.base}"/>
+    </radialGradient>
+    <radialGradient id="halo" cx="50%" cy="44%" r="44%">
+      <stop offset="0%" stop-color="${C.moss400}" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="${C.moss400}" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="avstem" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="${C.moss700}"/>
+      <stop offset="55%" stop-color="${C.moss400}"/>
+      <stop offset="100%" stop-color="${C.moss200}"/>
+    </linearGradient>
+    <!-- El extremo no baja de moss-500: con moss-600 las puntas de las hojas
+         se fundían con el fondo y la silueta se cortaba. -->
+    <linearGradient id="avleaf" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="${C.moss200}"/>
+      <stop offset="100%" stop-color="${C.moss500}"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <rect width="512" height="512" fill="url(#halo)"/>
+
+  <!-- Suelo: corto y muy adentro, para que el recorte circular no lo toque -->
+  <path d="M168 438 H344" stroke="${C.moss500}" stroke-opacity="0.5" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Tallo -->
+  <path d="M256 434 C256 360 248 260 256 118"
+        stroke="url(#avstem)" stroke-width="21" stroke-linecap="round" fill="none"/>
+
+  <!-- Hojas: el borde interior toca el tallo, la silueta se lee a 40 px -->
+  <ellipse cx="185" cy="322" rx="78" ry="32" fill="url(#avleaf)" transform="rotate(-26 185 322)"/>
+  <ellipse cx="327" cy="238" rx="78" ry="32" fill="url(#avleaf)" transform="rotate(26 327 238)"/>
+
+  <!-- Brote -->
+  <circle cx="256" cy="118" r="34" fill="${C.moss400}" fill-opacity="0.22"/>
+  <circle cx="256" cy="118" r="19" fill="${C.moss200}"/>
+
+  <!-- Brote pixelado en miniatura: el guiño RPG. A 40 px es invisible y no
+       ensucia la silueta; a tamaño grande recompensa a quien se fija. -->
+  <g opacity="0.8">
+    <rect x="163" y="408" width="14" height="30" fill="${C.moss500}"/>
+    <rect x="149" y="422" width="14" height="14" fill="${C.moss400}"/>
+    <rect x="163" y="394" width="14" height="14" fill="${C.moss300}"/>
+  </g>
+</svg>`;
+}
+
 /* ── Run ────────────────────────────────────────────────────────────────── */
 
 const targets = [
@@ -155,6 +230,8 @@ const targets = [
   { name: 'icon-512.png', svg: iconSvg(512) },
   { name: 'icon-maskable-512.png', svg: iconSvg(512, { padded: true }) },
   { name: 'apple-touch-icon.png', svg: iconSvg(180) },
+  { name: 'avatar-512.png', svg: avatarSvg(512) },
+  { name: 'avatar-1024.png', svg: avatarSvg(1024) },
 ];
 
 await mkdir(publicDir, { recursive: true });
