@@ -123,6 +123,13 @@
   --line-default: rgb(16 22 19 / 12%);
   --line-strong: rgb(16 22 19 / 20%);
 
+  /* Los tonos 100 y 200 son colores de TEXTO, no fondos: los usan las
+     etiquetas de estado ("Logro", "Completado", "Aprendido") y los hover.
+     En oscuro son verdes casi blancos; sobre fondo claro daban 1.15:1 y
+     1.45:1 — literalmente ilegibles. Aquí se invierte su papel: pasan a ser
+     los verdes MÁS oscuros de la escala, los más prominentes sobre blanco. */
+  --moss-100: #1b4a33;
+  --moss-200: #22573c;
   --moss-300: #327c58;
   --moss-400: #2b6b4c;
   --moss-500: #245f43;
@@ -133,6 +140,13 @@
 
   --ember-300: #a9762a;
   --ember-400: #96681f;
+
+  /* Mismo problema que con moss-100/200. `graphite-300` etiqueta los estados
+     neutros ("Idea", "Evento", "Próximo objetivo") y daba 2.1:1 sobre blanco.
+     `graphite-800` es el fondo de esos mismos chips: en oscuro es casi negro,
+     así que aquí tiene que aclararse o el chip queda gris sobre claro. */
+  --graphite-300: #55625d;
+  --graphite-800: #e7ebe9;
 
   --glass-fill: rgb(255 255 255 / 62%);
   --glass-fill-strong: rgb(255 255 255 / 82%);

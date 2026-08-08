@@ -41,7 +41,12 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
           <div
             aria-hidden
             className={cn(
-              'relative mb-7 flex items-end justify-between overflow-hidden rounded-2xl border border-line-subtle bg-graphite-950/50 px-5',
+              // `bg-base` y no `bg-graphite-950`: el gris más oscuro de la
+              // escala es oscuro en ambos temas, así que en modo claro este
+              // panel salía como un bloque gris sucio. `--surface-base` es el
+              // extremo de la escala en cada tema —el más oscuro en oscuro, el
+              // más claro en claro— que es justo lo que necesita un hueco.
+              'relative mb-7 flex items-end justify-between overflow-hidden rounded-2xl border border-line-subtle bg-base/60 px-5',
               featured ? 'h-40' : 'h-28',
             )}
           >
