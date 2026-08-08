@@ -1,9 +1,12 @@
-import { copyFile } from 'node:fs/promises';
+import { copyFile, mkdir, writeFile } from 'node:fs/promises';
+import { join } from 'node:path';
 import { fileURLToPath, URL } from 'node:url';
 
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import { defineConfig, type Plugin } from 'vite';
+
+import { collectRoutes } from './scripts/routes.mjs';
 
 /**
  * Vite configuration.
@@ -53,7 +56,59 @@ function spaFallback(): Plugin {
     apply: 'build',
     async closeBundle() {
       await copyFile('dist/index.html', 'dist/404.html');
-      this.info?.('dist/404.html generado (fallback SPA para GitHub Pages)');
+      this.info?.('dist/404.html generado (fallback SPA)');
+    },
+  };
+}
+
+/**
+ * Escribe un `index.html` real en cada ruta conocida.
+ *
+ * ── Por qué esto importa más de lo que parece ──────────────────────────────
+ *
+ * El `404.html` de arriba hace que las rutas internas FUNCIONEN para una
+ * persona, pero el servidor sigue respondiendo **HTTP 404**. Para un buscador,
+ * 404 significa "esta página no existe": no la indexa, y Search Console la
+ * marca como error. Con solo el fallback, el sitemap anunciaba 15 URLs de las
+ * cuales 14 devolvían 404 — es decir, todo el sitio salvo la portada era
+ * invisible en Google.
+ *
+ * Escribiendo `dist/projects/index.html`, `dist/about/index.html`, etc.,
+ * GitHub Pages sirve un archivo de verdad y responde **200**. React Router lee
+ * la URL al arrancar y pinta la ruta correcta, igual que antes.
+ *
+ * No es renderizado en servidor: el HTML es el mismo cascarón para todas las
+ * rutas, así que el contenido lo sigue pintando JavaScript. Pero el código de
+ * estado ya es correcto, que es lo que decide si una página entra o no en el
+ * índice.
+ */
+function prerenderRoutes(): Plugin {
+  return {
+    name: 'garden:prerender-routes',
+    apply: 'build',
+    async closeBundle() {
+      const { routes } = await collectRoutes();
+      const shell = 'dist/index.html';
+      let written = 0;
+
+      for (const { path } of routes) {
+        if (path === '/') continue; // ya existe: es el propio index.html
+
+        const dir = join('dist', path);
+        await mkdir(dir, { recursive: true });
+        await copyFile(shell, join(dir, 'index.html'));
+        written++;
+      }
+
+      // Deja constancia de lo generado: si un día el sitemap y las carpetas
+      // dejan de coincidir, este número es la primera pista.
+      await writeFile(
+        'dist/.routes-generated',
+        routes.map((r) => r.path).join('\n') + '\n',
+        'utf8',
+      );
+
+      this.info?.(`${written} rutas prerenderizadas (HTTP 200 en lugar de 404)`);
     },
   };
 }
@@ -65,7 +120,7 @@ export default defineConfig({
   // change with it. That is the main reason a user site is worth the rename.
   base: '/',
 
-  plugins: [react(), tailwindcss(), injectSiteUrl(), spaFallback()],
+  plugins: [react(), tailwindcss(), injectSiteUrl(), spaFallback(), prerenderRoutes()],
 
   resolve: {
     alias: {
