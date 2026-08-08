@@ -16,7 +16,13 @@ export const site = {
     'El jardín digital de Marco Collado C.: proyectos, aprendizajes y experimentos de un estudiante de Ingeniería de Software construyendo software que resuelve problemas reales.',
   locale: 'es_ES',
   lang: 'es',
-  url: import.meta.env.VITE_SITE_URL ?? 'https://marcocollado.dev',
+  /**
+   * Origen canónico. El despliegue lo fija con `VITE_SITE_URL`.
+   *
+   * Para mudarse a un dominio propio solo hay que cambiar esa variable y
+   * añadir `public/CNAME` — ni una línea de código más.
+   */
+  url: import.meta.env.VITE_SITE_URL ?? 'https://marckcc7.github.io',
   ogImage: '/og-image.png',
   themeColor: '#070908',
   keywords: [

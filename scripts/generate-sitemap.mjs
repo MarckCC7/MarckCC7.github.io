@@ -17,7 +17,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const origin = (process.env.VITE_SITE_URL ?? 'https://marcocollado.dev').replace(/\/$/, '');
+const origin = (process.env.VITE_SITE_URL ?? 'https://marckcc7.github.io').replace(/\/$/, '');
 const today = new Date().toISOString().slice(0, 10);
 
 /** Static routes and how often each is worth re-crawling. */
@@ -74,6 +74,19 @@ console.log(
   `  ✓ public/sitemap.xml — ${urls.length} URLs ` +
     `(${projectSlugs.length} proyectos, ${updateSlugs.length} updates)`,
 );
+
+/* robots.txt se genera aquí también: lleva la URL del sitemap dentro, y un
+   robots.txt apuntando a un dominio antiguo es peor que no tenerlo — le dice
+   al crawler que vaya a buscar el índice al sitio equivocado. */
+const robots = `# The Digital Garden — Marco Collado C.
+User-agent: *
+Allow: /
+
+Sitemap: ${origin}/sitemap.xml
+`;
+
+await writeFile(join(root, 'public', 'robots.txt'), robots, 'utf8');
+console.log(`  ✓ public/robots.txt — sitemap en ${origin}`);
 
 if (projectSlugs.length === 0 || updateSlugs.length === 0) {
   console.warn('  ! No se encontraron slugs. Revisa el formato de src/data/*.ts');

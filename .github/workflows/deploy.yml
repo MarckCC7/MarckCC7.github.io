@@ -1,0 +1,77 @@
+# ---------------------------------------------------------------------------
+# Despliegue a GitHub Pages
+# ---------------------------------------------------------------------------
+# Cada push a `main` compila el sitio y lo publica. No hay que subir `dist/`
+# al repo: se construye aquí y se sirve desde el artefacto de Pages.
+#
+# Antes de que funcione, una sola vez:
+#   Settings → Pages → Build and deployment → Source: "GitHub Actions"
+#
+# Para mudarte a un dominio propio no toques este archivo: crea la variable
+# de repositorio SITE_URL (Settings → Secrets and variables → Actions →
+# Variables) y añade `public/CNAME`.
+# ---------------------------------------------------------------------------
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  # Permite lanzarlo a mano desde la pestaña Actions.
+  workflow_dispatch:
+
+# Permisos mínimos que necesita el despliegue de Pages.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Si haces dos pushes seguidos, cancela el despliegue viejo en vez de
+# encolarlo: el último commit es el único que importa.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Compilar
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      # `npm ci` respeta package-lock.json exactamente. `npm install` podría
+      # resolver versiones distintas a las que probaste en local.
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Verificar tipos y lint
+        run: |
+          npm run typecheck
+          npm run lint
+
+      - name: Compilar
+        env:
+          # La variable de repositorio manda; si no existe, el sitio de usuario.
+          VITE_SITE_URL: ${{ vars.SITE_URL || 'https://marckcc7.github.io' }}
+        run: npm run build
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    name: Publicar
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

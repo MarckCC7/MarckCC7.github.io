@@ -219,14 +219,44 @@ cp .env.example .env
 
 ## Despliegue
 
-Ya está listo para Vercel (`vercel.json`) y Netlify (`public/_redirects`), ambos con el
-fallback de SPA configurado — sin eso, recargar `/projects` devuelve un 404.
+El sitio vive en **GitHub Pages** y se publica solo: cada push a `main` dispara
+`.github/workflows/deploy.yml`, que verifica tipos, pasa el lint, compila y sube el resultado.
+No se sube `dist/` al repositorio.
 
-```bash
-npm run build     # genera dist/
-```
+### Puesta en marcha (una sola vez)
 
-Para cualquier otro host: sirve `dist/` y reescribe todas las rutas a `index.html`.
+1. El repositorio debe llamarse **`MarckCC7.github.io`**. Ese nombre es lo que hace que el
+   sitio se sirva en la raíz del dominio en lugar de un subdirectorio.
+2. `Settings → Pages → Build and deployment → Source:` **GitHub Actions**.
+3. `Settings → Pages →` marca **Enforce HTTPS**.
+
+### Mudarse a un dominio propio
+
+Sin tocar código:
+
+1. Crea `public/CNAME` con una sola línea: `tudominio.com`
+2. En el registrador, apunta el dominio a GitHub Pages (registros `A` a las IPs de GitHub,
+   o un `CNAME` a `marckcc7.github.io`).
+3. Crea la variable de repositorio `SITE_URL` con `https://tudominio.com`
+   (`Settings → Secrets and variables → Actions → Variables`).
+
+El paso 3 es el que importa: `VITE_SITE_URL` alimenta el canonical, Open Graph, el JSON-LD,
+`robots.txt` y el sitemap. Si se queda con el valor viejo, los buscadores seguirán indexando
+la URL antigua.
+
+### Por qué existe `dist/404.html`
+
+GitHub Pages no tiene reglas de reescritura, así que una visita directa a `/projects` nunca
+llega a la SPA. El plugin `garden:spa-fallback` en `vite.config.ts` copia `index.html` a
+`404.html` en cada build: Pages sirve esa página, React Router lee la URL y pinta la ruta
+correcta. Sin ese archivo, todos los enlaces internos se rompen al recargar o al abrir un
+enlace compartido.
+
+### Otros hosts
+
+`vercel.json` y `public/_redirects` siguen en el repo y funcionan tal cual en Vercel y
+Netlify. Esos dos hosts sí permiten cabeceras HTTP personalizadas (Pages no), así que si
+algún día quieres CSP o `X-Frame-Options` reales, ahí ya está configurado.
 
 ---
 

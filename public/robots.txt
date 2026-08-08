@@ -1,5 +1,5 @@
-# The Digital Garden — Marco Collado
+# The Digital Garden — Marco Collado C.
 User-agent: *
 Allow: /
 
-Sitemap: https://marcocollado.dev/sitemap.xml
+Sitemap: https://marckcc7.github.io/sitemap.xml
