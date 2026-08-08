@@ -36,7 +36,7 @@ export function ProjectsPage() {
       <Seo
         title="Proyectos"
         path="/projects"
-        description="Sistemas que Marco Collado está diseñando y construyendo: administración de condominios con IA, memoria digital familiar, investigación de corrupción, gestión ganadera y más."
+        description="Sistemas que Marco Collado C. está diseñando y construyendo: administración de condominios con IA, memoria digital familiar, investigación de corrupción, gestión ganadera y más."
       />
 
       <PageHeader

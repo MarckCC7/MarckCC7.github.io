@@ -19,7 +19,7 @@ export function UpdatesSection() {
         description="No es un blog. Es la bitácora del jardín: eventos, hackathons, logros y proyectos nuevos, en el orden en que pasaron."
       />
 
-      <RevealGroup className="mt-14 grid gap-5 md:grid-cols-3" stagger={0.1}>
+      <RevealGroup className="mt-10 grid gap-5 md:grid-cols-3" stagger={0.1}>
         {recent.map((update) => (
           <RevealItem key={update.slug} className="h-full">
             <UpdateCard update={update} />

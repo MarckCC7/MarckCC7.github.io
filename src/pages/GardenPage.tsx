@@ -22,7 +22,7 @@ export function GardenPage() {
       <Seo
         title="El jardín"
         path="/garden"
-        description="Un mapa vivo de todo lo que Marco Collado está construyendo: proyectos como plantas, certificados como árboles y publicaciones como flores."
+        description="Un mapa vivo de todo lo que Marco Collado C. está construyendo: proyectos como plantas, certificados como árboles y publicaciones como flores."
       />
 
       <PageHeader

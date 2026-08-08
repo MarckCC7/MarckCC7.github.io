@@ -98,6 +98,23 @@ export interface RoadmapNode {
   horizon: string;
 }
 
+/* ── Experience ─────────────────────────────────────────────────────────── */
+
+export interface ExperienceEntry {
+  id: string;
+  role: string;
+  organisation: string;
+  /** Displayed verbatim, e.g. "2025" or "2024 – 2025". */
+  period: string;
+  /** What the job actually was, in one or two sentences. */
+  summary: string;
+  /**
+   * Transferable skills the role built. Kept separate from `summary` so the
+   * card can show them as chips — recruiters scan these before they read.
+   */
+  skills: string[];
+}
+
 /* ── Certificates ───────────────────────────────────────────────────────── */
 
 export type CertificateKind = 'certification' | 'course' | 'award' | 'event';

@@ -28,7 +28,7 @@ export function ProjectsSection() {
         description="Ninguno de estos está inflado. La etiqueta que ves es la etapa real en la que está — porque un proyecto bien pensado en fase de idea vale más que uno vago que dice estar terminado."
       />
 
-      <RevealGroup className="mt-14 grid gap-5 md:grid-cols-2" stagger={0.1}>
+      <RevealGroup className="mt-10 grid gap-5 md:grid-cols-2" stagger={0.1}>
         {shown.map((project) => (
           <RevealItem key={project.slug} className="h-full">
             <ProjectCard project={project} featured={project.featured} />

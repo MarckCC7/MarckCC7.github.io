@@ -54,7 +54,12 @@ export function Hero() {
             {/* Name */}
             <h1 className="text-display-lg">
               <TextReveal immediate text="Marco" delay={0.3} className="text-gradient block" />
-              <TextReveal immediate text="Collado" delay={0.42} className="block text-ink-muted" />
+              <TextReveal
+                immediate
+                text="Collado C."
+                delay={0.42}
+                className="block text-ink-muted"
+              />
             </h1>
 
             {/* Motto — the thesis of everything */}

@@ -6,21 +6,22 @@
  * own canonical tags.
  */
 export const site = {
-  name: 'Marco Collado',
+  name: 'Marco Collado C.',
   shortName: 'Marco C.',
-  title: 'Marco Collado — The Digital Garden',
-  titleTemplate: '%s · Marco Collado',
+  title: 'Marco Collado C. — The Digital Garden',
+  titleTemplate: '%s · Marco Collado C.',
   role: 'Estudiante de Ingeniería de Software',
   motto: 'Hazlo con pasión o no lo hagas.',
   description:
-    'El jardín digital de Marco Collado: proyectos, aprendizajes y experimentos de un estudiante de Ingeniería de Software construyendo software que resuelve problemas reales.',
+    'El jardín digital de Marco Collado C.: proyectos, aprendizajes y experimentos de un estudiante de Ingeniería de Software construyendo software que resuelve problemas reales.',
   locale: 'es_ES',
   lang: 'es',
   url: import.meta.env.VITE_SITE_URL ?? 'https://marcocollado.dev',
   ogImage: '/og-image.png',
   themeColor: '#070908',
   keywords: [
-    'Marco Collado',
+    'Marco Collado C.',
+    'Marco Antonio Collado Cárdenas',
     'ingeniería de software',
     'portafolio desarrollador',
     'digital garden',

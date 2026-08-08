@@ -12,7 +12,7 @@ export const stack: StackItem[] = [
   {
     name: 'JavaScript',
     category: 'languages',
-    level: 3,
+    level: 2,
     note: 'Mi lenguaje de todos los días. Donde más rápido paso de idea a algo que se puede tocar.',
     accent: '#E9C46A',
     mark: 'JS',
@@ -20,7 +20,7 @@ export const stack: StackItem[] = [
   {
     name: 'Python',
     category: 'languages',
-    level: 3,
+    level: 2,
     note: 'Para datos, automatización y todo lo que involucre IA. El que uso cuando quiero pensar, no pelear.',
     accent: '#5B84FB',
     mark: 'Py',
@@ -28,7 +28,7 @@ export const stack: StackItem[] = [
   {
     name: 'C#',
     category: 'languages',
-    level: 3,
+    level: 2,
     note: 'Entré por Unity y me quedé por el lenguaje. Tipado fuerte que no estorba.',
     accent: '#8FCAAC',
     mark: 'C#',
@@ -36,7 +36,7 @@ export const stack: StackItem[] = [
   {
     name: 'Java',
     category: 'languages',
-    level: 2,
+    level: 1,
     note: 'Donde aprendí de verdad qué significa orientación a objetos, más allá de la definición del examen.',
     accent: '#E07A5F',
     mark: 'Jv',
@@ -44,7 +44,7 @@ export const stack: StackItem[] = [
   {
     name: 'C',
     category: 'languages',
-    level: 2,
+    level: 1,
     note: 'El lenguaje que me obligó a entender qué hay debajo. Nada es gratis y aquí se nota.',
     accent: '#A7B2AD',
     mark: 'C',
@@ -52,7 +52,7 @@ export const stack: StackItem[] = [
   {
     name: 'C++',
     category: 'languages',
-    level: 2,
+    level: 1,
     note: 'Estructuras de datos y rendimiento. Complejo por diseño, y por eso enseña tanto.',
     accent: '#7A9EFF',
     mark: 'C+',
@@ -62,7 +62,7 @@ export const stack: StackItem[] = [
   {
     name: 'React',
     category: 'frontend',
-    level: 3,
+    level: 2,
     note: 'Mi forma de pensar interfaces: composición, estado explícito, componentes que se explican solos.',
     accent: '#66D9E8',
     mark: 'Re',
@@ -70,7 +70,7 @@ export const stack: StackItem[] = [
   {
     name: 'HTML',
     category: 'frontend',
-    level: 4,
+    level: 3,
     note: 'Semántica primero. Un documento bien estructurado ya es accesible antes de tocar CSS.',
     accent: '#E76F51',
     mark: '<>',
@@ -78,7 +78,7 @@ export const stack: StackItem[] = [
   {
     name: 'CSS',
     category: 'frontend',
-    level: 4,
+    level: 3,
     note: 'Layout, transiciones y sistemas de diseño. Aquí es donde una interfaz deja de sentirse genérica.',
     accent: '#5B84FB',
     mark: '#',
@@ -88,7 +88,7 @@ export const stack: StackItem[] = [
   {
     name: 'Unity',
     category: 'gamedev',
-    level: 3,
+    level: 2,
     note: 'Donde entendí que un sistema se siente bien mucho antes de que sepas explicar por qué.',
     accent: '#CBD3CF',
     mark: 'U',
@@ -98,7 +98,7 @@ export const stack: StackItem[] = [
   {
     name: 'Git',
     category: 'tools',
-    level: 3,
+    level: 2,
     note: 'Historial limpio, ramas con propósito. El registro de cómo se tomó cada decisión.',
     accent: '#E3B269',
     mark: 'Gt',
@@ -106,7 +106,7 @@ export const stack: StackItem[] = [
   {
     name: 'Linux',
     category: 'tools',
-    level: 2,
+    level: 1,
     note: 'Terminal, permisos y servicios. Saber dónde vive el software cambia cómo lo escribes.',
     accent: '#66B38C',
     mark: 'Lx',

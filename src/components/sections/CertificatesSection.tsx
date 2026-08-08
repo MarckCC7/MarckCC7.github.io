@@ -14,7 +14,7 @@ export function CertificatesSection() {
         description="Lo que tomó tiempo y dejó marca. Cada uno cambió algo concreto en cómo trabajo, y eso es lo que está escrito aquí — no el título del diploma."
       />
 
-      <RevealGroup className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-3" stagger={0.1}>
+      <RevealGroup className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3" stagger={0.1}>
         {certificates.map((certificate) => (
           <RevealItem key={certificate.id} className="h-full">
             <CertificateCard certificate={certificate} />

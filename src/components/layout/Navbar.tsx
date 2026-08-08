@@ -143,7 +143,7 @@ function Wordmark() {
 
         <span className="font-display text-[0.9375rem] font-semibold tracking-tight text-ink">
           Marco
-          <span className="text-ink-muted"> Collado</span>
+          <span className="text-ink-muted"> Collado C.</span>
         </span>
       </Link>
     </Magnetic>

@@ -5,6 +5,12 @@ import { useLocalStorage } from '@hooks/useLocalStorage';
 import { usePreferences } from '@hooks/usePreferences';
 import { cn } from '@utils/cn';
 
+/* Plant geometry, in pixels. One source of truth so the canopy, the leaves and
+   the droplet all agree on where the top of the stem is. */
+const STEM_H = (stage: number) => 8 + stage * 16;
+const CANOPY_W = (stage: number) => 14 + stage * 12;
+const CANOPY_H = (stage: number) => 10 + stage * 8;
+
 const STAGES = [
   { label: 'Una semilla', hint: 'Riega tocándola.' },
   { label: 'Un brote', hint: 'Sigue.' },
@@ -47,60 +53,82 @@ export function GrowingSeed({ className }: { className?: string }) {
         onClick={water}
         data-cursor="button"
         aria-label={isFull ? 'Tu árbol está completo' : 'Regar la semilla'}
-        className="group relative grid h-40 w-40 place-items-end pb-4"
+        className="group relative block h-40 w-40"
       >
-        {/* Soil */}
-        <span
-          aria-hidden
-          className="absolute bottom-3 h-px w-24 bg-gradient-to-r from-transparent via-line-strong to-transparent"
-        />
+        {/*
+          Every part of the plant is anchored to this box: `bottom: 0` is the
+          soil line and `left: 50%` is the stem. The previous version nested the
+          leaves inside a shrink-to-fit flex column, so the box widened as the
+          canopy grew and dragged the leaves sideways with it — the tree came
+          out lopsided at exactly the stages where it should look best.
 
-        {/* The plant itself */}
-        <span aria-hidden className="relative flex flex-col items-center">
+          Note the `x: '-50%'` inside the Framer props rather than a
+          `-translate-x-1/2` class: Framer writes the whole `transform`, so a
+          Tailwind translate on an animated element gets silently overwritten.
+        */}
+        <span aria-hidden className="absolute inset-x-0 bottom-6 block h-32">
+          {/* Soil */}
+          <span className="absolute inset-x-3 bottom-0 h-px bg-gradient-to-r from-transparent via-line-strong to-transparent" />
+
+          {/* Canopy — rides the top of the stem */}
           <AnimatePresence>
             {stage > 0 && (
               <motion.span
                 key="canopy"
-                initial={{ scale: 0, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
+                initial={{ scale: 0, opacity: 0, x: '-50%' }}
+                animate={{ scale: 1, opacity: 1, x: '-50%' }}
+                exit={{ scale: 0, opacity: 0, x: '-50%' }}
                 transition={{ type: 'spring', stiffness: 220, damping: 18 }}
-                className="mb-1 rounded-full bg-moss-400/25 blur-[2px]"
-                style={{ width: 12 + stage * 11, height: 8 + stage * 7 }}
+                className="absolute left-1/2 rounded-full bg-moss-400/25 blur-[2px]"
+                style={{
+                  width: CANOPY_W(stage),
+                  height: CANOPY_H(stage),
+                  bottom: STEM_H(stage) - CANOPY_H(stage) * 0.42,
+                }}
               />
             )}
           </AnimatePresence>
 
+          {/* Stem */}
           <motion.span
-            animate={{ height: 6 + stage * 15 }}
+            animate={{ height: STEM_H(stage) }}
             transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-            className="w-[3px] origin-bottom rounded-full bg-gradient-to-t from-moss-700 to-moss-300"
+            className="absolute bottom-0 left-1/2 w-[3px] -translate-x-1/2 rounded-full bg-gradient-to-t from-moss-700 to-moss-300"
           />
 
-          {/* Leaves appear from stage 2 */}
-          {Array.from({ length: Math.max(0, stage - 1) }, (_, index) => (
-            <motion.span
-              key={index}
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ type: 'spring', stiffness: 240, damping: 18 }}
-              className="absolute h-1.5 w-5 rounded-full bg-moss-500/70"
-              style={{
-                bottom: 12 + index * 14,
-                left: index % 2 === 0 ? -18 : 4,
-                rotate: index % 2 === 0 ? '-26deg' : '26deg',
-              }}
-            />
-          ))}
+          {/* Leaves — from stage 2 onwards, alternating sides.
+              `right-1/2` / `left-1/2` puts each leaf's inner edge exactly on the
+              stem, and the matching transform origin makes it hinge outward. */}
+          {Array.from({ length: Math.max(0, stage - 1) }, (_, index) => {
+            const isLeft = index % 2 === 0;
+            return (
+              <motion.span
+                key={index}
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ type: 'spring', stiffness: 240, damping: 18, delay: index * 0.04 }}
+                className={cn(
+                  'absolute h-1.5 w-5 rounded-full bg-moss-500/70',
+                  isLeft ? 'right-1/2 origin-right' : 'left-1/2 origin-left',
+                )}
+                style={{
+                  bottom: 14 + index * 15,
+                  rotate: isLeft ? '-24deg' : '24deg',
+                }}
+              />
+            );
+          })}
 
           {/* Water droplet feedback */}
           <AnimatePresence>
             {justGrew && (
               <motion.span
-                initial={{ opacity: 1, y: -34, scale: 0.6 }}
-                animate={{ opacity: 0, y: 4, scale: 1 }}
-                exit={{ opacity: 0 }}
+                initial={{ opacity: 1, y: -38, scale: 0.6, x: '-50%' }}
+                animate={{ opacity: 0, y: 0, scale: 1, x: '-50%' }}
+                exit={{ opacity: 0, x: '-50%' }}
                 transition={{ duration: 0.65, ease: 'easeIn' }}
-                className="absolute h-1.5 w-1.5 rounded-full bg-azure-300"
+                className="absolute left-1/2 h-1.5 w-1.5 rounded-full bg-azure-300"
+                style={{ bottom: STEM_H(stage) }}
               />
             )}
           </AnimatePresence>

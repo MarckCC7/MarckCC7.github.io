@@ -108,7 +108,7 @@ const ogSvg = `
     </text>
 
     <text x="86" y="304" fill="${C.ink}" font-size="94" font-weight="700" letter-spacing="-3">
-      Marco Collado
+      Marco Collado C.
     </text>
 
     <text x="88" y="360" fill="${C.inkSecondary}" font-size="27" font-weight="500">

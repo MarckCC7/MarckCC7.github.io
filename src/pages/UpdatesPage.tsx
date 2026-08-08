@@ -20,7 +20,7 @@ export function UpdatesPage() {
       <Seo
         title="Garden Updates"
         path="/updates"
-        description="La bitácora del jardín de Marco Collado: eventos, hackathons, logros y proyectos nuevos."
+        description="La bitácora del jardín de Marco Collado C.: eventos, hackathons, logros y proyectos nuevos."
       />
 
       <PageHeader

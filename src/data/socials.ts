@@ -12,20 +12,20 @@ export const socials: SocialLink[] = [
   {
     id: 'github',
     label: 'GitHub',
-    handle: '@MarcoCollado',
-    href: 'https://github.com/MarcoCollado',
+    handle: '@MarckCC7',
+    href: 'https://github.com/MarckCC7',
   },
   {
     id: 'linkedin',
     label: 'LinkedIn',
-    handle: 'Marco Collado',
-    href: 'https://www.linkedin.com/in/marco-collado/',
+    handle: 'Marco Collado C.',
+    href: 'https://www.linkedin.com/in/marco-antonio-collado-cardenas',
   },
   {
     id: 'instagram',
     label: 'Instagram',
-    handle: '@marco.collado',
-    href: 'https://www.instagram.com/marco.collado/',
+    handle: '@marck_7cc',
+    href: 'https://www.instagram.com/marck_7cc/',
   },
   {
     id: 'mail',

@@ -74,7 +74,7 @@ export function ContactSection() {
           </Reveal>
 
           {/* — Channels —————————————————————————————— */}
-          <RevealGroup className="mt-12 flex flex-wrap justify-center gap-3" stagger={0.07}>
+          <RevealGroup className="mt-10 flex flex-wrap justify-center gap-3" stagger={0.07}>
             {socials.map((social) => (
               <RevealItem key={social.id}>
                 <Magnetic strength={0.3}>

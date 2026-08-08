@@ -5,7 +5,7 @@
  * components.
  */
 export const profile = {
-  name: 'Marco Collado',
+  name: 'Marco Collado C.',
   headline: 'Construyo software con la intención de que sobreviva a mí.',
 
   /** Hero paragraph. Two sentences maximum — the hero must breathe. */
@@ -53,7 +53,21 @@ export const profile = {
     { label: 'Sembrado en', value: 2026, suffix: '', raw: true },
   ],
 
+  /**
+   * Idiomas. El nivel es honesto a propósito — inflar un idioma es la mentira
+   * más fácil de descubrir: se destapa en los primeros treinta segundos de una
+   * entrevista.
+   */
+  languages: [
+    { name: 'Español', level: 'Nativo', note: 'Lengua materna.' },
+    {
+      name: 'Inglés',
+      level: 'Básico',
+      note: 'Leo documentación técnica sin problema. Conversación, todavía en construcción.',
+    },
+  ],
+
   location: 'Arequipa, Perú',
   availability: 'Abierto a prácticas, colaboraciones y equipos que construyan cosas difíciles.',
-  email: 'marcocdo65@gmail.com',
+  email: 'marcocollcar@gmail.com',
 } as const;

@@ -2,7 +2,7 @@
 
 # The Digital Garden
 
-**La marca personal de Marco Collado.**
+**La marca personal de Marco Collado C.**
 Proyectos, aprendizajes y experimentos de alguien que está construyendo, en público.
 
 _“Hazlo con pasión o no lo hagas.”_
@@ -242,7 +242,7 @@ cuántas veces volviste.
 
 ## Licencia
 
-[MIT](./LICENSE) — © 2026 Marco Collado.
+[MIT](./LICENSE) — © 2026 Marco Collado C.
 
 El código es libre. El contenido (textos, proyectos, la marca personal) es de Marco: si
 reutilizas la estructura, cámbialo por el tuyo.

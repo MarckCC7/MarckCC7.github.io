@@ -21,10 +21,10 @@ export function StackSection() {
       <SectionHeading
         eyebrow="02 · Mi stack"
         title="Herramientas que uso, con el nivel real en el que estoy."
-        description="Ninguna de estas está en 5 de 5, y decirlo es parte del punto. Un jardín honesto es más útil que un catálogo inflado."
+        description="Los números son mi propia evaluación, y son deliberadamente conservadores. Prefiero que una entrevista confirme que sé más de lo que dice esta página, y no al revés."
       />
 
-      <div className="mt-14 space-y-12">
+      <div className="mt-10 space-y-10">
         {groupedStack().map(({ category, items }) => (
           <div key={category}>
             <Reveal>

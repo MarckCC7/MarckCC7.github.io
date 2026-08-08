@@ -107,7 +107,15 @@ export default {
       },
 
       spacing: {
-        section: 'clamp(5rem, 3rem + 8vw, 9rem)',
+        /**
+         * Vertical rhythm between sections.
+         *
+         * Every `<Section>` applies this as BOTH top and bottom padding, so the
+         * visible gap between two sections is twice this value — 12rem at
+         * desktop, not 6rem. Worth remembering before nudging it: a small bump
+         * here is a large bump on screen.
+         */
+        section: 'clamp(3.5rem, 2rem + 4.5vw, 6rem)',
         gutter: 'clamp(1.25rem, 0.5rem + 2.5vw, 2.5rem)',
       },
 

@@ -49,7 +49,7 @@ export function RoadmapSection() {
         description="Cada etapa no se cierra cuando empieza la siguiente: se queda creciendo debajo. Así es como se construye una base que aguanta diez años."
       />
 
-      <div ref={containerRef} className="relative mt-16">
+      <div ref={containerRef} className="relative mt-12">
         {/* — Trunk ————————————————————————————————
             A dim rail with a bright, scroll-driven segment growing over it. */}
         <div

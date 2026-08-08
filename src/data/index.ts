@@ -6,6 +6,7 @@
  * an API) without touching a single component.
  */
 export * from './certificates';
+export * from './experience';
 export * from './navigation';
 export * from './profile';
 export * from './projects';
