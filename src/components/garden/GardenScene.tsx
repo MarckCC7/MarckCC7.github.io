@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, type Variants } from 'framer-motion';
 import { useState, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -87,6 +87,16 @@ export function GardenScene() {
   );
 }
 
+/**
+ * El cantero no se anima a sí mismo: solo existe para nombrar los dos estados y
+ * repartirlos entre sus descendientes. El escalonado no se hace con
+ * `staggerChildren` porque cada organismo ya define sus propios retardos —tallo,
+ * luego hojas, luego brote— y un retardo declarado en la variante del hijo tiene
+ * prioridad sobre el que reparte el padre. Poner aquí un stagger daría la falsa
+ * impresión de que hace algo.
+ */
+const bedVariants: Variants = { hidden: {}, visible: {} };
+
 function GardenBed({
   title,
   caption,
@@ -124,12 +134,26 @@ function GardenBed({
         {/* `justify-around` spreads the organisms across the bed instead of
             bunching them at the left edge. Only from `sm` up: when the row
             overflows on a phone, distributed alignment can make the first item
-            unreachable by scrolling. */}
-        <ul className="mask-fade-x relative flex items-end gap-3 overflow-x-auto px-6 pt-10 pb-8 sm:justify-around sm:gap-6">
+            unreachable by scrolling.
+
+            Este <ul> es además el ÚNICO disparador de toda la siembra del
+            cantero. Es una caja ancha, siempre presente y que nunca se escala a
+            cero, así que su observador no puede quedarse sin dispararse. Desde
+            aquí la variante baja por contexto hasta cada hoja y cada pétalo
+            —ver la nota larga en `GardenOrganisms`—, y basta con que se vea el
+            15% del cantero para que germine entero, incluidos los organismos
+            que en un móvil quedan fuera por el scroll horizontal. */}
+        <motion.ul
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={bedVariants}
+          className="mask-fade-x relative flex items-end gap-3 overflow-x-auto px-6 pt-10 pb-8 sm:justify-around sm:gap-6"
+        >
           {organisms.map((organism, index) => (
             <GardenOrganism key={organism.id} organism={organism} seed={index} />
           ))}
-        </ul>
+        </motion.ul>
 
         {/* ground line */}
         <span

@@ -131,18 +131,26 @@ export function GardenIllustration({ className }: { className?: string }) {
               {...entrance(0.75 + index * 0.16, 0.8)}
             />
 
-            <motion.ellipse
-              cx={branch.leaf.x}
-              cy={branch.leaf.y}
-              rx="19"
-              ry="8.5"
-              fill="url(#leaf-gradient)"
-              stroke="var(--moss-400)"
-              strokeWidth="1"
-              transform={`rotate(${branch.leaf.angle} ${branch.leaf.x} ${branch.leaf.y})`}
-              style={{ transformOrigin: `${branch.leaf.x}px ${branch.leaf.y}px` }}
-              {...pop(1.0 + index * 0.16)}
-            />
+            {/* La rotación va en el <g> y la animación en la elipse de dentro.
+                En SVG una regla CSS `transform` SUSTITUYE al atributo
+                `transform`, no se suma: en cuanto Framer escribía el suyo
+                —aunque fuese `none` al terminar el pop— la hoja perdía su
+                ángulo y se quedaba plana, como tumbada sobre la rama. Se veía
+                en todas partes, pero saltaba a la vista en el móvil, donde la
+                ilustración ocupa casi toda la pantalla. Separando las dos capas
+                cada una escribe en su propio elemento y no se pisan. */}
+            <g transform={`rotate(${branch.leaf.angle} ${branch.leaf.x} ${branch.leaf.y})`}>
+              <motion.ellipse
+                cx={branch.leaf.x}
+                cy={branch.leaf.y}
+                rx="19"
+                ry="8.5"
+                fill="url(#leaf-gradient)"
+                stroke="var(--moss-400)"
+                strokeWidth="1"
+                {...pop(1.0 + index * 0.16)}
+              />
+            </g>
 
             <motion.circle
               cx={branch.node.x}
