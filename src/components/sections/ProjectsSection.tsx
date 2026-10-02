@@ -12,7 +12,7 @@ export function ProjectsSection() {
     <Section spacing="custom" id="proyectos" className="home-section">
       <SectionRail
         title="Proyectos"
-        description="Código público, sistemas desplegados e ideas que sigo cultivando."
+        description="Sistemas públicos y privados, productos desplegados e ideas que sigo cultivando."
       />
       <RevealGroup className="projects-grid" stagger={0.06}>
         {ordered.map((project) => (

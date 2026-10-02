@@ -18,6 +18,9 @@ export function ProjectCard({ project }: { project: Project }) {
           <Badge className={stage.tone} dot={stage.dot}>
             {stage.label}
           </Badge>
+          {project.private && (
+            <Badge className="border-line-subtle bg-elevated/60 text-ink-muted">Privado</Badge>
+          )}
           <span>{project.year}</span>
         </div>
         <motion.div
@@ -40,11 +43,7 @@ export function ProjectCard({ project }: { project: Project }) {
           )}
         </div>
         <div className="project-card-foot">
-          <Link
-            to={`/projects/${project.slug}`}
-            data-cursor="link"
-            className="project-detail-link"
-          >
+          <Link to={`/projects/${project.slug}`} data-cursor="link" className="project-detail-link">
             Ver detalle <ArrowUpRight size={13} />
           </Link>
           {project.links && project.links.length > 0 && (

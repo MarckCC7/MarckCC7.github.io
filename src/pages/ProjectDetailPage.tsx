@@ -52,6 +52,11 @@ export function ProjectDetailPage() {
                 <Badge className={stage.tone} dot={stage.dot} pulse={project.stage === 'building'}>
                   {stage.label}
                 </Badge>
+                {project.private && (
+                  <Badge className="border-line-subtle bg-elevated/60 text-ink-muted">
+                    Repositorio privado
+                  </Badge>
+                )}
                 <span className="font-mono text-xs text-ink-muted">{project.year}</span>
               </div>
             </Reveal>

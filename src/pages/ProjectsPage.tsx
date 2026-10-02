@@ -36,13 +36,13 @@ export function ProjectsPage() {
       <Seo
         title="Proyectos"
         path="/projects"
-        description="Proyectos públicos, sistemas desplegados e ideas que Marco Collado C. está diseñando y construyendo."
+        description="Productos, sistemas desplegados e ideas que Marco Collado C. está diseñando y construyendo."
       />
 
       <PageHeader
         eyebrow="Proyectos"
         title={`${projects.length} proyectos que muestran lo que estoy construyendo.`}
-        description="Aquí conviven sistemas desplegados, código público e ideas en investigación. Cada tarjeta indica su etapa real y enlaza al código o al sitio cuando ya existe."
+        description="Aquí conviven sistemas desplegados, proyectos públicos y privados e ideas en investigación. Cada tarjeta indica su etapa real y enlaza al código o al sitio cuando corresponde."
       />
 
       <Container className="pb-section">

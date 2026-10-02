@@ -80,6 +80,87 @@ export const projects: Project[] = [
     glyph: '◒',
   },
   {
+    slug: 'caballo-de-paso-system',
+    title: 'Caballo Peruano de Paso',
+    tagline: 'Calificaciones, categorías y resultados para concursos de Caballos Peruanos de Paso.',
+    problem:
+      'Organizar un concurso exige coordinar ejemplares, categorías, jueces, criterios ponderados y resultados sin perder trazabilidad. Hacerlo en hojas sueltas vuelve difícil validar inscripciones y explicar cómo se obtuvo cada puesto.',
+    approach:
+      'Un sistema web que centraliza caballos, concursos, jueces y planillas de calificación. Calcula resultados por promedio, mediana, descarte de extremos o suma de puestos, y consolida rankings por categoría, criador y expositor.',
+    stage: 'prototype',
+    year: 2026,
+    stack: ['Node.js', 'Express', 'SQLite', 'HTML', 'CSS', 'JavaScript'],
+    highlights: [
+      'Motor de calificación con criterios ponderados y reglas de desempate.',
+      'Validación de edad y sexo al inscribir cada ejemplar en una categoría.',
+      'API REST, datos de demostración y pruebas automatizadas del dominio.',
+    ],
+    private: true,
+    featured: true,
+    glyph: '♞',
+  },
+  {
+    slug: 'concurso-marinera-system',
+    title: 'Mesa de control de Marinera',
+    tagline: 'Programa, paletas, rondas y resultados para operar concursos de marinera.',
+    problem:
+      'Un concurso de marinera reúne modalidades, categorías, tandas, jurados y desempates que deben avanzar en un orden claro. Registrar paletas a mano dificulta detectar pendientes, conservar el historial y publicar resultados consistentes.',
+    approach:
+      'Una aplicación local para que el operador prepare hasta 45 competencias, distribuya participantes en tandas, registre paletas y gestione clasificaciones, finales y desempates. Conserva concursos cerrados y permite respaldar o exportar los resultados.',
+    stage: 'prototype',
+    year: 2026,
+    stack: ['JavaScript', 'Node.js', 'HTML', 'CSS', 'LocalStorage'],
+    highlights: [
+      'Flujo completo desde la preparación del programa hasta el cierre del concurso.',
+      'Entre 3 y 10 jurados, rondas protegidas y desempates con historial.',
+      'Respaldo y restauración en JSON, además de exportación de resultados en CSV.',
+    ],
+    private: true,
+    featured: true,
+    glyph: '♫',
+  },
+  {
+    slug: 'cidaf-waylluy-tusuy',
+    title: 'CIDAF Waylluy Tusuy',
+    tagline: 'Sitio del elenco arequipeño dedicado a la danza y el folklore peruano.',
+    problem:
+      'El elenco necesitaba reunir su identidad, repertorio, convocatorias, presentaciones y canales de contacto en una experiencia digital propia, clara tanto para nuevos integrantes como para organizadores de eventos.',
+    approach:
+      'Un sitio estático de una sola página, diseñado desde cero alrededor de su identidad cultural. Integra galería, videos, convocatorias con fecha de cierre, postulación, preguntas frecuentes y contacto para presentaciones.',
+    stage: 'prototype',
+    year: 2026,
+    stack: ['HTML', 'CSS', 'JavaScript', 'Web estática'],
+    highlights: [
+      'Convocatorias editables que calculan su vigencia y se cierran automáticamente.',
+      'Galería, repertorio y videos reunidos en una navegación adaptable.',
+      'Sitio listo para publicar; todavía sin un despliegue independiente verificado.',
+    ],
+    private: true,
+    featured: true,
+    glyph: '❋',
+  },
+  {
+    slug: 'mostrarte-peru',
+    title: 'Mostrarte Perú',
+    tagline: 'Una presencia digital renovada para una productora cultural peruana.',
+    problem:
+      'El sitio anterior partía de una plantilla genérica y mezclaba contenido real con textos, páginas y datos de demostración. La empresa necesitaba comunicar su trabajo cultural con una identidad propia y una navegación más clara.',
+    approach:
+      'Un rediseño estático de varias páginas que organiza producción cultural, formación artística, comunicación creativa y el elenco CIDAF Waylluy Tusuy. La experiencia incorpora animación progresiva, galería y contacto directo sin depender de un framework.',
+    stage: 'shipped',
+    year: 2026,
+    stack: ['HTML', 'CSS', 'JavaScript', 'Apache', 'SEO'],
+    highlights: [
+      'Sistema visual adaptable con movimiento respetuoso de las preferencias de accesibilidad.',
+      'Contenido, rutas históricas, metadatos y sitemap preparados para buscadores.',
+      'Despliegue público verificado en el dominio de la organización.',
+    ],
+    links: [{ label: 'Ver sitio', href: 'https://mostrarteperu.com/' }],
+    private: true,
+    featured: true,
+    glyph: '✺',
+  },
+  {
     slug: 'perfil-github',
     title: 'Perfil de GitHub',
     tagline: 'Una portada técnica que reúne mi stack, mi ruta de aprendizaje y mis enlaces.',

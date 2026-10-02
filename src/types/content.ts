@@ -43,6 +43,8 @@ export interface Project {
   /** Bullet points of what makes it non-obvious. Optional. */
   highlights?: string[];
   links?: ExternalLink[];
+  /** The project can be shown publicly even when its source repository is private. */
+  private?: boolean;
   /** Pin to the top of listings and grow taller in the garden. */
   featured?: boolean;
   /** Two-character glyph rendered in the card's pixel plate. */
