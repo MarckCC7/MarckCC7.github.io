@@ -207,6 +207,51 @@ export const projects: Project[] = [
     glyph: '⛨',
   },
   {
+    slug: 'apocalix',
+    title: 'Apocalix',
+    tagline: 'Software empresarial y gamificación narrados como un imperio digital.',
+    problem:
+      'Las empresas suelen presentar servicios tecnológicos complejos con páginas genéricas que no explican su valor ni construyen una identidad memorable. Apocalix necesitaba convertir software a medida, consultoría, datos y gamificación en una propuesta fácil de recorrer.',
+    approach:
+      'Una experiencia web de narrativa inmersiva donde cuatro jinetes representan los servicios principales y distintos panteones organizan las áreas tecnológicas. El recorrido combina interacción, casos representativos, cifras y un formulario que orienta al visitante hacia el servicio adecuado.',
+    stage: 'shipped',
+    year: 2026,
+    stack: ['JavaScript', 'CSS', 'Diseño interactivo', 'Animación', 'Vercel'],
+    highlights: [
+      'Identidad visual completa basada en los cuatro jinetes y doce panteones mitológicos.',
+      'Tarjetas interactivas, navegación narrativa y escenas con movimiento ambiental.',
+      'Experiencia bilingüe y adaptable con un despliegue público verificable.',
+    ],
+    links: [{ label: 'Ver sitio', href: 'https://apocalix-one.vercel.app/' }],
+    featured: true,
+    glyph: '☄',
+  },
+  {
+    slug: 'boss',
+    title: 'B.O.S.S.',
+    tagline: 'Decisiones, estructuras de datos y minijuegos dentro de una simulación modular.',
+    problem:
+      'Los conceptos de estructuras de datos y toma de decisiones pueden resultar abstractos cuando se estudian de forma aislada. El proyecto necesitaba convertirlos en situaciones jugables donde cada elección alterara el desarrollo del sistema.',
+    approach:
+      'Un juego de simulación construido en Unity que reúne eventos basados en cartas, entrevistas, decisiones y minijuegos. Grafos, árboles, pilas, colas y tablas hash sostienen una arquitectura orientada a objetos que permite ampliar los escenarios.',
+    stage: 'shipped',
+    year: 2026,
+    stack: ['Unity', 'C#', 'Tiled', 'JSON', 'Estructuras de datos'],
+    highlights: [
+      'Sistema de decisiones con consecuencias sobre el progreso de la simulación.',
+      'Eventos dinámicos, relaciones representadas con grafos y jerarquías con árboles.',
+      'Versión jugable publicada en itch.io.',
+    ],
+    collaboration:
+      'Proyecto de Sebastián Barreda en el que contribuí diseñando y construyendo los mapas con Tiled.',
+    links: [
+      { label: 'Código del equipo', href: 'https://github.com/Seb0401/B.O.S.S.' },
+      { label: 'Jugar', href: 'https://seb0401.itch.io/boss' },
+    ],
+    featured: true,
+    glyph: '⚔',
+  },
+  {
     slug: 'perfil-github',
     title: 'Perfil de GitHub',
     tagline: 'Una portada técnica que reúne mi stack, mi ruta de aprendizaje y mis enlaces.',
