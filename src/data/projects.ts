@@ -127,14 +127,15 @@ export const projects: Project[] = [
       'El elenco necesitaba reunir su identidad, repertorio, convocatorias, presentaciones y canales de contacto en una experiencia digital propia, clara tanto para nuevos integrantes como para organizadores de eventos.',
     approach:
       'Un sitio estático de una sola página, diseñado desde cero alrededor de su identidad cultural. Integra galería, videos, convocatorias con fecha de cierre, postulación, preguntas frecuentes y contacto para presentaciones.',
-    stage: 'prototype',
+    stage: 'shipped',
     year: 2026,
     stack: ['HTML', 'CSS', 'JavaScript', 'Web estática'],
     highlights: [
       'Convocatorias editables que calculan su vigencia y se cierran automáticamente.',
       'Galería, repertorio y videos reunidos en una navegación adaptable.',
-      'Sitio listo para publicar; todavía sin un despliegue independiente verificado.',
+      'Despliegue público verificado en el dominio de Mostrarte Perú.',
     ],
+    links: [{ label: 'Ver sitio', href: 'https://waylluytusuy.mostrarteperu.com/' }],
     private: true,
     featured: true,
     glyph: '❋',
@@ -159,6 +160,51 @@ export const projects: Project[] = [
     private: true,
     featured: true,
     glyph: '✺',
+  },
+  {
+    slug: 'suyu',
+    title: 'Suyu',
+    tagline: 'Rutas accesibles y un copiloto inteligente para descubrir Arequipa.',
+    problem:
+      'La información sobre accesibilidad, aforo y servicios de los atractivos de Arequipa está dispersa o no existe. Esto complica el viaje de personas con movilidad reducida, familias y visitantes que necesitan aprovechar un día limitado.',
+    approach:
+      'Una PWA offline-first que construye rutas accesibles, muestra el estado de los lugares y propone alternativas cuando un destino está saturado. Incluye mapa, itinerario, servicios formalizados y un copiloto que combina Claude con un motor de reglas local.',
+    stage: 'shipped',
+    year: 2026,
+    stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'MapLibre', 'Supabase', 'Claude API'],
+    highlights: [
+      'Ruta peatonal y para silla de ruedas con funcionamiento degradado sin proveedores externos.',
+      'PWA instalable, datos esenciales locales y experiencia completa sin conexión.',
+      'Diseño accesible con mascota contextual, modo oscuro y adaptación móvil.',
+    ],
+    collaboration:
+      'Proyecto desarrollado en equipo para TURISTON 2026. Mi trabajo se concentró en la interfaz, la experiencia móvil, la identidad visual y la representación de rutas.',
+    links: [{ label: 'Ver aplicación', href: 'https://suyu-two.vercel.app/' }],
+    private: true,
+    featured: true,
+    glyph: '⌖',
+  },
+  {
+    slug: 'aegis',
+    title: 'Aegis',
+    tagline: 'Un agente financiero con límites verificables y operaciones sobre Stellar.',
+    problem:
+      'Quienes reciben ingresos irregulares deben decidir en cada pago cuánto reservar, repartir o ahorrar. Un agente financiero puede reducir esa carga, pero necesita límites técnicos que no dependan de que la IA decida obedecerlos.',
+    approach:
+      'Un agente propone cómo repartir cada ingreso y un Policy Engine aplica límites definidos por el usuario. Antes de ejecutar, un Guardian analiza el riesgo y explica la operación; Stellar testnet conserva la evidencia y permite delegar un firmante revocable.',
+    stage: 'prototype',
+    year: 2026,
+    stack: ['TypeScript', 'React', 'Node.js', 'PostgreSQL', 'Stellar', 'MCP'],
+    highlights: [
+      'Pagos reales de extremo a extremo sobre Stellar testnet.',
+      'Policy Engine, reserva mínima, límites por operación y bitácora encadenada.',
+      'Integración MCP para que otros agentes propongan operaciones sin saltarse las políticas.',
+    ],
+    collaboration:
+      'Proyecto construido en equipo. Contribuí al frontend, las pruebas del flujo que mueve dinero, la estabilidad E2E y la preparación del pitch y la demostración.',
+    links: [{ label: 'Código del equipo', href: 'https://github.com/Seb0401/Aegis' }],
+    featured: true,
+    glyph: '⛨',
   },
   {
     slug: 'perfil-github',

@@ -147,6 +147,17 @@ export function ProjectDetailPage() {
               </GlassCard>
             </Reveal>
 
+            {project.collaboration && (
+              <Reveal delay={0.09}>
+                <GlassCard className="p-6">
+                  <h2 className="text-pixel text-[0.5rem] text-ink-muted">Mi contribución</h2>
+                  <p className="mt-5 text-sm leading-relaxed text-ink-secondary">
+                    {project.collaboration}
+                  </p>
+                </GlassCard>
+              </Reveal>
+            )}
+
             {project.links && project.links.length > 0 && (
               <Reveal delay={0.12}>
                 <GlassCard className="p-6">

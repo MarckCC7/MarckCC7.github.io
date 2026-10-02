@@ -73,6 +73,18 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://marckcc7.github.io/projects/suyu</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://marckcc7.github.io/projects/aegis</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://marckcc7.github.io/projects/perfil-github</loc>
     <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>

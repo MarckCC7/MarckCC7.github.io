@@ -42,6 +42,8 @@ export interface Project {
   stack: string[];
   /** Bullet points of what makes it non-obvious. Optional. */
   highlights?: string[];
+  /** Honest description of the author's role when the project was built with a team. */
+  collaboration?: string;
   links?: ExternalLink[];
   /** The project can be shown publicly even when its source repository is private. */
   private?: boolean;
