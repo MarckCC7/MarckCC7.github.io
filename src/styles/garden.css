@@ -225,7 +225,6 @@
     width: max-content;
     margin: 0;
     padding: 10px 18px 0;
-    background: var(--surface-base);
     color: var(--moss-300);
     font: 600 11px/1.5 var(--font-mono);
     letter-spacing: 0.13em;
@@ -252,7 +251,7 @@
     box-shadow: 0 0 8px var(--surface-sheen);
   }
   .section-rail p {
-    max-width: 48%;
+    max-width: 280px;
     justify-self: end;
     padding-top: 3px;
     font-size: 11px;
@@ -496,21 +495,44 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     gap: 12px;
     margin-top: 11px;
   }
-  .project-card-foot > span:first-child {
+  .project-detail-link {
     display: flex;
     align-items: center;
     gap: 5px;
     font-size: 11px;
     color: var(--moss-300);
   }
-  .project-card-foot .circle-arrow {
-    width: 30px;
-    height: 30px;
-    border-color: var(--line-default);
-    color: var(--azure-300);
+  .project-card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 6px;
+  }
+  .project-external-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    min-height: 28px;
+    padding: 4px 8px;
+    border: 1px solid var(--line-default);
+    border-radius: 8px;
+    color: var(--text-secondary);
+    font-size: 10px;
+    line-height: 1;
+    transition:
+      border-color 0.2s,
+      color 0.2s,
+      background-color 0.2s;
+  }
+  .project-external-link:hover,
+  .project-external-link:focus-visible {
+    border-color: var(--line-strong);
+    color: var(--moss-200);
+    background: var(--surface-elevated);
   }
   [data-theme='light'] .tech-monogram {
     color: var(--text-primary);
@@ -544,7 +566,7 @@
       font-size: 10px;
     }
     .section-rail p {
-      max-width: 42%;
+      max-width: 260px;
     }
   }
   @media (max-width: 767px) {

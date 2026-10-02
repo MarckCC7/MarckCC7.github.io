@@ -11,6 +11,98 @@ import type { Project, ProjectStage } from '@/types';
  */
 export const projects: Project[] = [
   {
+    slug: 'tracereq',
+    title: 'TraceReq',
+    tagline: 'Gestión de requerimientos, casos de uso y trazabilidad en una sola plataforma.',
+    problem:
+      'Los requerimientos funcionales y no funcionales suelen terminar dispersos entre documentos, hojas de cálculo y conversaciones. Cuando el proyecto crece, se vuelve difícil saber qué caso de uso cubre cada requisito y qué cambios afectan al resto.',
+    approach:
+      'Una aplicación web que organiza proyectos, RF, RNF y casos de uso; registra relaciones entre requisitos, construye una matriz de cobertura y muestra métricas en un dashboard. También permite exportar la información a CSV o JSON.',
+    stage: 'prototype',
+    year: 2026,
+    stack: ['Python', 'Flask', 'SQLAlchemy', 'MySQL', 'JavaScript'],
+    highlights: [
+      'Identificadores automáticos para RF, RNF y casos de uso.',
+      'Matriz de cobertura y grafo interactivo de dependencias.',
+      'Despliegue público verificado en Vercel con autenticación.',
+    ],
+    links: [
+      { label: 'Código', href: 'https://github.com/MarckCC7/tracereq' },
+      { label: 'Ver sistema', href: 'https://tracereq.vercel.app' },
+    ],
+    featured: true,
+    glyph: '↯',
+  },
+  {
+    slug: 'jardin-digital',
+    title: 'The Digital Garden',
+    tagline: 'Mi jardín digital: proyectos, aprendizajes y experimentos que crecen en público.',
+    problem:
+      'Un portafolio tradicional congela el trabajo en una foto perfecta y envejece rápido. Necesitaba un espacio que pudiera mostrar tanto lo terminado como lo que todavía está creciendo, sin inflar etapas ni habilidades.',
+    approach:
+      'Un sitio personal construido como jardín: cada proyecto es una planta, cada certificado un árbol y cada publicación una flor. Todo el contenido vive en datos tipados para que el sitio pueda mantenerse y crecer sin reescribir componentes.',
+    stage: 'shipped',
+    year: 2026,
+    stack: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'GSAP'],
+    highlights: [
+      'Sistema visual completo con temas oscuro y claro.',
+      'Contenido tipado, rutas prerenderizadas y sitemap automático.',
+      'Despliegue público verificado en GitHub Pages.',
+    ],
+    links: [
+      { label: 'Código', href: 'https://github.com/MarckCC7/MarckCC7.github.io' },
+      { label: 'Ver sitio', href: 'https://marckcc7.github.io/' },
+    ],
+    featured: true,
+    glyph: '✦',
+  },
+  {
+    slug: 'portafolio-danza',
+    title: 'Portafolio de danza',
+    tagline: 'Una identidad digital para presentar mi trabajo en marinera y danza peruana.',
+    problem:
+      'Las presentaciones, fotografías y experiencia artística estaban repartidas y no existía una pieza digital clara para compartirlas con academias, organizadores o nuevas colaboraciones.',
+    approach:
+      'Una landing de una sola página donde la fotografía guía la experiencia. Está construida con HTML, CSS y JavaScript puros, con medios optimizados y una paleta inspirada en las propias imágenes.',
+    stage: 'shipped',
+    year: 2026,
+    stack: ['HTML', 'CSS', 'JavaScript', 'Vercel'],
+    highlights: [
+      'Sin dependencias ni proceso de build.',
+      'Fotografías WebP y video optimizado para carga rápida.',
+      'Despliegue público verificado en Vercel.',
+    ],
+    links: [
+      { label: 'Código', href: 'https://github.com/MarckCC7/dancer-portafolio' },
+      { label: 'Ver sitio', href: 'https://mcollado-marinera-arequipa.vercel.app' },
+    ],
+    featured: true,
+    glyph: '◒',
+  },
+  {
+    slug: 'perfil-github',
+    title: 'Perfil de GitHub',
+    tagline: 'Una portada técnica que reúne mi stack, mi ruta de aprendizaje y mis enlaces.',
+    problem:
+      'El perfil predeterminado de GitHub muestra actividad, pero no explica quién soy, qué estoy aprendiendo ni cómo se conectan mis repositorios con mi objetivo profesional.',
+    approach:
+      'Un README de perfil que resume mi presentación, herramientas, niveles reales, roadmap, certificados y formas de contacto, conectado visualmente con el jardín digital.',
+    stage: 'shipped',
+    year: 2026,
+    stack: ['Markdown', 'GitHub', 'SVG'],
+    highlights: [
+      'Presentación consistente con la identidad del jardín digital.',
+      'Niveles de herramientas deliberadamente conservadores.',
+      'Visible directamente en el perfil público de GitHub.',
+    ],
+    links: [
+      { label: 'Código', href: 'https://github.com/MarckCC7/MarckCC7' },
+      { label: 'Ver perfil', href: 'https://github.com/MarckCC7' },
+    ],
+    featured: true,
+    glyph: '@',
+  },
+  {
     slug: 'condo-os',
     title: 'CondoOS',
     tagline:

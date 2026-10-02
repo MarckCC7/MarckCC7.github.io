@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Code2, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Plant } from '@components/garden/GardenOrganisms';
 import { Badge } from '@components/ui/Badge';
@@ -13,12 +13,7 @@ export function ProjectCard({ project }: { project: Project }) {
   const reducedMotion = usePrefersReducedMotion();
   return (
     <GlassCard className="project-card h-full" glow>
-      <Link
-        to={`/projects/${project.slug}`}
-        data-cursor="card"
-        data-cursor-label="ABRIR"
-        className="project-card-link"
-      >
+      <div className="project-card-link">
         <div className="project-meta">
           <Badge className={stage.tone} dot={stage.dot}>
             {stage.label}
@@ -45,14 +40,36 @@ export function ProjectCard({ project }: { project: Project }) {
           )}
         </div>
         <div className="project-card-foot">
-          <span>
+          <Link
+            to={`/projects/${project.slug}`}
+            data-cursor="link"
+            className="project-detail-link"
+          >
             Ver detalle <ArrowUpRight size={13} />
-          </span>
-          <span className="circle-arrow">
-            <ArrowUpRight size={16} />
-          </span>
+          </Link>
+          {project.links && project.links.length > 0 && (
+            <div className="project-card-actions">
+              {project.links.slice(0, 2).map((link) => {
+                const isCode = link.label.toLowerCase().includes('código');
+                const Icon = isCode ? Code2 : ExternalLink;
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-cursor="link"
+                    className="project-external-link"
+                  >
+                    <Icon size={12} aria-hidden />
+                    {link.label}
+                  </a>
+                );
+              })}
+            </div>
+          )}
         </div>
-      </Link>
+      </div>
     </GlassCard>
   );
 }

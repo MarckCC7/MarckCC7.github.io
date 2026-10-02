@@ -55,7 +55,7 @@ export function GardenOverview() {
                 viewport={{ once: true, amount: 0.2 }}
               >
                 {bed.kind === 'plants' &&
-                  projects.map((project, index) => (
+                  projects.slice(0, 6).map((project, index) => (
                     <Plant
                       key={project.slug}
                       scale={stageMeta[project.stage].growth}

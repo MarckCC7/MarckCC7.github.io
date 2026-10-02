@@ -115,7 +115,11 @@ export function ProjectDetailPage() {
           <aside className="space-y-5">
             <Reveal>
               <GlassCard className="p-6">
-                <h2 className="text-pixel text-[0.5rem] text-ink-muted">Stack previsto</h2>
+                <h2 className="text-pixel text-[0.5rem] text-ink-muted">
+                  {project.stage === 'idea' || project.stage === 'research'
+                    ? 'Stack previsto'
+                    : 'Stack'}
+                </h2>
                 <ul className="mt-5 flex flex-wrap gap-2">
                   {project.stack.map((tech) => (
                     <li key={tech}>

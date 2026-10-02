@@ -10,7 +10,10 @@ export function ProjectsSection() {
   );
   return (
     <Section spacing="custom" id="proyectos" className="home-section">
-      <SectionRail title="Proyectos" description="Ideas que planté, y que sigo cultivando." />
+      <SectionRail
+        title="Proyectos"
+        description="Código público, sistemas desplegados e ideas que sigo cultivando."
+      />
       <RevealGroup className="projects-grid" stagger={0.06}>
         {ordered.map((project) => (
           <RevealItem key={project.slug} className="h-full">
