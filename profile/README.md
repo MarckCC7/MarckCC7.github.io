@@ -98,6 +98,11 @@ Prefiero que una conversación confirme que sé más de lo que dice esta página
 
 **Experiencia**
 
+`2026 — actualidad` · **Secretario** en **PMI Student Club — Universidad La Salle** —
+Coordinación del club, comunicación interna y seguimiento de actividades que acercan la gestión de
+proyectos a la comunidad universitaria.
+`Gestión de proyectos` `Coordinación` `Comunicación` `Liderazgo estudiantil`
+
 `2025` · **Asesor** en **Claro Perú** — Atención directa a clientes: entender un problema real,
 explicarlo en palabras que la otra persona entienda y cerrar un acuerdo con el que ambas partes
 se queden tranquilas.
@@ -107,7 +112,6 @@ se queden tranquilas.
 
 - 🥉 **Tercer puesto — TURISTON 2026**, hackathon de innovación turística
 - 🌐 **CCNA: Introduction to Networks** — Cisco Networking Academy
-- 📊 **PMI Arequipa 2026** — gestión de proyectos aplicada a equipos técnicos
 
 **Idiomas**
 

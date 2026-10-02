@@ -17,15 +17,6 @@ export const certificates: Certificate[] = [
       'Fundamentos de redes: modelo OSI, direccionamiento IPv4/IPv6, enrutamiento, switching y configuración de dispositivos Cisco. Entender la red cambió cómo diseño sistemas: la latencia y la topología dejaron de ser abstracciones.',
   },
   {
-    id: 'pmi-arequipa',
-    title: 'PMI Arequipa 2026',
-    issuer: 'Project Management Institute — Capítulo Arequipa',
-    period: '2026',
-    kind: 'event',
-    description:
-      'Gestión de proyectos aplicada a equipos técnicos: alcance, riesgo y comunicación. La parte del oficio que decide si un buen proyecto llega a existir o se queda en una buena idea.',
-  },
-  {
     id: 'turiston-2026',
     title: 'TURISTON 2026 — Hackathon de Turismo',
     issuer: 'Hackathon TURISTON',

@@ -12,6 +12,15 @@ import type { ExperienceEntry } from '@/types';
  */
 export const experience: ExperienceEntry[] = [
   {
+    id: 'pmi-student-club-lasalle',
+    role: 'Secretario',
+    organisation: 'PMI Student Club — Universidad La Salle',
+    period: '2026 — actualidad',
+    summary:
+      'Participo en la coordinación del club, la comunicación interna y el seguimiento de actividades que acercan la gestión de proyectos a la comunidad universitaria.',
+    skills: ['Gestión de proyectos', 'Coordinación', 'Comunicación', 'Liderazgo estudiantil'],
+  },
+  {
     id: 'claro-peru',
     role: 'Asesor',
     organisation: 'Claro Perú',

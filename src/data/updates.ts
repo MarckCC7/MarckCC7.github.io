@@ -58,18 +58,17 @@ export const updates: GardenUpdate[] = [
   },
   {
     slug: 'pmi-arequipa-2026',
-    title: 'PMI Arequipa 2026',
-    date: '2026-03-08',
-    kind: 'event',
-    excerpt:
-      'Un evento sobre gestión de proyectos que me hizo entender por qué mueren los proyectos técnicos buenos.',
+    title: 'Secretario del PMI Student Club',
+    date: '2026-10-02',
+    kind: 'milestone',
+    excerpt: 'Asumí el rol de Secretario del PMI Student Club de la Universidad La Salle.',
     body: [
-      'Fui esperando escuchar sobre cronogramas. Me encontré con algo bastante más incómodo: la mayoría de los proyectos que fracasan no fracasan por razones técnicas.',
-      'Fracasan porque nadie definió el alcance, porque el riesgo se descubrió tarde, o porque dos personas entendieron cosas distintas de la misma frase.',
-      '## La conclusión que me llevé',
-      'Saber programar te permite construir. Saber gestionar es lo que permite que lo construido llegue a alguien. Como alguien que quiere fundar una startup, ignorar esa mitad del oficio sería ingenuo.',
+      'Actualmente soy Secretario del PMI Student Club de la Universidad La Salle, un espacio estudiantil conectado con la práctica de la gestión de proyectos.',
+      'Desde este rol participo en la coordinación del club, la comunicación interna y el seguimiento de sus actividades.',
+      '## Una responsabilidad que complementa lo técnico',
+      'Construir software también implica organizar personas, mantener acuerdos claros y dar seguimiento a lo que un equipo decide. Esta experiencia me permite desarrollar esas capacidades desde la comunidad universitaria.',
     ],
-    tags: ['Gestión de proyectos', 'PMI', 'Evento'],
+    tags: ['PMI', 'Gestión de proyectos', 'Liderazgo estudiantil', 'Universidad La Salle'],
   },
   {
     slug: 'sembrando-este-jardin',
