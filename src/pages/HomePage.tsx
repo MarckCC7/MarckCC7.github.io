@@ -4,6 +4,7 @@ import { CertificatesSection } from '@components/sections/CertificatesSection';
 import { ContactSection } from '@components/sections/ContactSection';
 import { Hero } from '@components/sections/Hero';
 import { GardenOverview } from '@components/sections/GardenOverview';
+import { PhilosophySection } from '@components/sections/PhilosophySection';
 import { ProjectsSection } from '@components/sections/ProjectsSection';
 import { RoadmapSection } from '@components/sections/RoadmapSection';
 import { StackSection } from '@components/sections/StackSection';
@@ -30,6 +31,7 @@ export function HomePage() {
       <CertificatesSection />
       <UpdatesSection />
       <RoadmapSection />
+      <PhilosophySection />
       <ContactSection />
     </>
   );

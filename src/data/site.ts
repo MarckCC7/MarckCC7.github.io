@@ -11,7 +11,7 @@ export const site = {
   title: 'Marco Collado C. — The Digital Garden',
   titleTemplate: '%s · Marco Collado C.',
   role: 'Estudiante de Ingeniería de Software',
-  motto: 'Hazlo con pasión o no lo hagas.',
+  motto: 'Hazlo con pasión, o no lo hagas.',
   description:
     'El jardín digital de Marco Collado C.: proyectos, aprendizajes y experimentos de un estudiante de Ingeniería de Software construyendo software que resuelve problemas reales.',
   locale: 'es_ES',

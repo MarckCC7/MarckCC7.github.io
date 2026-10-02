@@ -5,7 +5,7 @@
 **La marca personal de Marco Collado C.**
 Proyectos, aprendizajes y experimentos de alguien que está construyendo, en público.
 
-_“Hazlo con pasión o no lo hagas.”_
+_“Hazlo con pasión, o no lo hagas.”_
 
 <sub>React · Vite · TypeScript · Tailwind CSS · Framer Motion · GSAP</sub>
 

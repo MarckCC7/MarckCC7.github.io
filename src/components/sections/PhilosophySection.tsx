@@ -7,7 +7,7 @@ import { usePrefersReducedMotion } from '@hooks/useMediaQuery';
 import { splitWords } from '@utils/text';
 
 /**
- * A full-width pause between the roadmap and the projects.
+ * A full-width pause between the roadmap and contact.
  *
  * Every long page needs at least one moment that carries almost no information.
  * It resets the reader's attention, and it is the only place the motto is
@@ -52,10 +52,9 @@ export function PhilosophySection() {
       ctx = gsap.context(() => {
         gsap.fromTo(
           '[data-word]',
-          { opacity: 0.16, filter: 'blur(3px)' },
+          { opacity: 0.32 },
           {
             opacity: 1,
-            filter: 'blur(0px)',
             ease: 'none',
             stagger: 0.5,
             scrollTrigger: {
@@ -78,7 +77,11 @@ export function PhilosophySection() {
   const words = splitWords(site.motto);
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden py-section">
+    <section
+      id="filosofia"
+      ref={sectionRef}
+      className="relative scroll-mt-24 overflow-hidden py-section sm:scroll-mt-28"
+    >
       {/* Ghost line drifting behind the statement */}
       <motion.p
         aria-hidden
