@@ -27,7 +27,7 @@ export function ContactSection() {
       <GlassCard className="overflow-hidden px-gutter py-16 sm:py-20" spotlight>
         <div className="relative mx-auto max-w-3xl text-center">
           <Reveal>
-            <span className="text-pixel text-[0.5625rem] text-moss-300">07 · Contacto</span>
+            <span className="section-kicker justify-center text-moss-300">Contacto</span>
           </Reveal>
 
           <Reveal delay={0.06}>

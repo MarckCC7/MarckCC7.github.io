@@ -93,8 +93,8 @@ export default {
       fontSize: {
         // Fluid display sizes — no media queries needed for the hero.
         'display-sm': [
-          'clamp(2.25rem, 1.4rem + 3.6vw, 3.5rem)',
-          { lineHeight: '1.05', letterSpacing: '-0.03em' },
+          'clamp(1.75rem, 1.2rem + 2.3vw, 2.75rem)',
+          { lineHeight: '1.16', letterSpacing: '-0.035em' },
         ],
         'display-md': [
           'clamp(2.75rem, 1.2rem + 6vw, 5rem)',
@@ -115,12 +115,12 @@ export default {
          * desktop, not 6rem. Worth remembering before nudging it: a small bump
          * here is a large bump on screen.
          */
-        section: 'clamp(3.5rem, 2rem + 4.5vw, 6rem)',
+        section: 'clamp(2.5rem, 1.7rem + 2vw, 4rem)',
         gutter: 'clamp(1.25rem, 0.5rem + 2.5vw, 2.5rem)',
       },
 
       maxWidth: {
-        shell: '84rem',
+        shell: '76rem',
         prose: '68ch',
       },
 

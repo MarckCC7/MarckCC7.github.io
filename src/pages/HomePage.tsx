@@ -3,7 +3,7 @@ import { AboutSection } from '@components/sections/AboutSection';
 import { CertificatesSection } from '@components/sections/CertificatesSection';
 import { ContactSection } from '@components/sections/ContactSection';
 import { Hero } from '@components/sections/Hero';
-import { PhilosophySection } from '@components/sections/PhilosophySection';
+import { GardenOverview } from '@components/sections/GardenOverview';
 import { ProjectsSection } from '@components/sections/ProjectsSection';
 import { RoadmapSection } from '@components/sections/RoadmapSection';
 import { StackSection } from '@components/sections/StackSection';
@@ -13,10 +13,9 @@ import { personJsonLd } from '@lib/seo';
 /**
  * The home page.
  *
- * Section order is an argument, read top to bottom: who I am → what I can do →
- * where I am going → what I have built → what I have earned → what I am doing
- * right now → how to reach me. A recruiter who stops at any point has still
- * read a complete thought.
+ * The compact home follows the garden reference: introduction, principles,
+ * tools, garden beds and projects. Credentials and the growth log follow;
+ * the longer learning path remains available near the contact section.
  */
 export function HomePage() {
   return (
@@ -26,11 +25,11 @@ export function HomePage() {
       <Hero />
       <AboutSection />
       <StackSection />
-      <RoadmapSection />
-      <PhilosophySection />
+      <GardenOverview />
       <ProjectsSection />
       <CertificatesSection />
       <UpdatesSection />
+      <RoadmapSection />
       <ContactSection />
     </>
   );

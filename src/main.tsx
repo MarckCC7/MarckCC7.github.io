@@ -6,7 +6,7 @@ import { createRoot } from 'react-dom/client';
    SF Pro is never shipped — the token stack falls back to it natively on
    Apple devices, which is the only licence-clean way to use it. */
 import '@fontsource-variable/inter';
-import '@fontsource-variable/geist';
+import '@fontsource-variable/manrope';
 import '@fontsource-variable/jetbrains-mono';
 /* The pixel font only ever renders short ASCII labels, so the latin subset is
    all it will ever need — no reason to ship Cyrillic and Greek @font-face

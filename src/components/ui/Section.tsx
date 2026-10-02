@@ -9,6 +9,8 @@ interface SectionProps {
   className?: string;
   containerClassName?: string;
   size?: 'default' | 'wide' | 'prose';
+  /** Custom sections define their own vertical rhythm in the component stylesheet. */
+  spacing?: 'default' | 'custom';
 }
 
 /**
@@ -23,9 +25,13 @@ export function Section({
   className,
   containerClassName,
   size = 'default',
+  spacing = 'default',
 }: SectionProps) {
   return (
-    <section id={id} className={cn('relative scroll-mt-24 py-section', className)}>
+    <section
+      id={id}
+      className={cn('relative scroll-mt-24', spacing === 'default' && 'py-section', className)}
+    >
       <Container size={size} className={containerClassName}>
         {children}
       </Container>

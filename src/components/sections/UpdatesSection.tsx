@@ -4,7 +4,7 @@ import { UpdateCard } from '@components/cards/UpdateCard';
 import { Reveal, RevealGroup, RevealItem } from '@components/motion/Reveal';
 import { ButtonLink } from '@components/ui/Button';
 import { Section } from '@components/ui/Section';
-import { SectionHeading } from '@components/ui/SectionHeading';
+import { SectionRail } from '@components/ui/SectionRail';
 import { sortedUpdates } from '@data/updates';
 
 /** The three most recent entries in the growth log. */
@@ -12,17 +12,13 @@ export function UpdatesSection() {
   const recent = sortedUpdates.slice(0, 3);
 
   return (
-    <Section id="updates">
-      <SectionHeading
-        eyebrow="06 · Garden Updates"
-        title="El registro de lo que está creciendo."
-        description="No es un blog. Es la bitácora del jardín: eventos, hackathons, logros y proyectos nuevos, en el orden en que pasaron."
-      />
+    <Section spacing="custom" id="updates" className="home-section">
+      <SectionRail title="Garden Updates" description="El registro de lo que está creciendo." />
 
-      <RevealGroup className="mt-10 grid gap-5 md:grid-cols-3" stagger={0.1}>
+      <RevealGroup className="grid gap-4 md:grid-cols-3" stagger={0.1}>
         {recent.map((update) => (
           <RevealItem key={update.slug} className="h-full">
-            <UpdateCard update={update} />
+            <UpdateCard update={update} compact />
           </RevealItem>
         ))}
       </RevealGroup>

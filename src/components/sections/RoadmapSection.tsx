@@ -44,7 +44,7 @@ export function RoadmapSection() {
   return (
     <Section id="roadmap">
       <SectionHeading
-        eyebrow="03 · Roadmap"
+        eyebrow="Roadmap"
         title="No es una línea del tiempo. Es un árbol que sigue echando ramas."
         description="Cada etapa no se cierra cuando empieza la siguiente: se queda creciendo debajo. Así es como se construye una base que aguanta diez años."
       />

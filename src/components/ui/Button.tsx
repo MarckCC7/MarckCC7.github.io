@@ -10,7 +10,7 @@ type Size = 'sm' | 'md' | 'lg';
 
 const VARIANTS: Record<Variant, string> = {
   primary:
-    'bg-azure-500 text-white shadow-glow hover:bg-azure-400 [--sheen:rgba(255,255,255,0.35)]',
+    'bg-azure-500 text-white shadow-glow hover:bg-azure-600 [--sheen:rgba(255,255,255,0.35)]',
   moss: 'bg-moss-500 text-graphite-950 shadow-glow-moss hover:bg-moss-400 [--sheen:rgba(255,255,255,0.4)]',
   secondary:
     'glass text-ink hover:border-line-strong hover:bg-elevated/60 [--sheen:rgba(255,255,255,0.18)]',

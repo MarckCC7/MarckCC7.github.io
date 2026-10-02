@@ -16,6 +16,7 @@
      loses its blur. Vite adds whatever prefixes `build.cssTarget` requires. */
   .glass {
     background-color: var(--glass-fill);
+    background-image: radial-gradient(ellipse at 0 0, var(--surface-sheen), transparent 65%);
     border: 1px solid var(--glass-border);
     backdrop-filter: blur(18px) saturate(140%);
     box-shadow: var(--shadow-glass);
@@ -23,6 +24,7 @@
 
   .glass-strong {
     background-color: var(--glass-fill-strong);
+    background-image: linear-gradient(120deg, var(--surface-sheen), transparent 45%);
     border: 1px solid var(--glass-border);
     backdrop-filter: blur(28px) saturate(160%);
     box-shadow: var(--shadow-glass);

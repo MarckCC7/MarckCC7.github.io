@@ -1,6 +1,6 @@
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
-import { Menu, Moon, Sun, Volume2, VolumeX, X } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { ArrowUpRight, Menu, Moon, Sun, Volume2, VolumeX, X } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 
 import { Magnetic } from '@components/motion/Magnetic';
@@ -63,10 +63,10 @@ export function Navbar() {
         <Container>
           <div
             className={cn(
-              'mt-3 flex h-14 items-center justify-between rounded-2xl px-3 transition-all duration-500 ease-garden sm:px-4',
+              'garden-navbar mt-3 flex h-16 items-center justify-between rounded-3xl px-3 transition-all duration-500 ease-garden sm:px-4',
               condensed
                 ? 'glass-strong border border-line-subtle shadow-lift'
-                : 'border border-transparent bg-transparent',
+                : 'glass border-line-default border',
             )}
           >
             <Wordmark />
@@ -102,7 +102,15 @@ export function Navbar() {
 
             <div className="flex items-center gap-1">
               <PreferenceToggles />
+              <Link
+                to="/#contacto"
+                className="nav-contact hidden lg:inline-flex"
+                data-cursor="button"
+              >
+                Contacto <ArrowUpRight size={15} />
+              </Link>
               <button
+                id="mobile-menu-toggle"
                 type="button"
                 onClick={() => setMenuOpen((open) => !open)}
                 aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
@@ -143,7 +151,7 @@ function Wordmark() {
 
         <span className="font-display text-[0.9375rem] font-semibold tracking-tight text-ink">
           Marco
-          <span className="text-ink-muted"> Collado C.</span>
+          <span className="brand-surname text-ink-muted"> Collado C.</span>
         </span>
       </Link>
     </Magnetic>
@@ -198,30 +206,47 @@ function PreferenceToggles() {
 /* ── Mobile sheet ───────────────────────────────────────────────────────── */
 
 function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const menuRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
+    if (!open) return;
+    const menu = menuRef.current;
+    menu?.querySelector<HTMLAnchorElement>('a')?.focus();
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') onClose();
+      if (event.key !== 'Tab' || !menu) return;
+      const controls = menu.querySelectorAll<HTMLElement>('a, button');
+      const first = controls[0];
+      const last = controls[controls.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last?.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first?.focus();
+      }
     };
     window.addEventListener('keydown', onKeyDown);
-    return () => window.removeEventListener('keydown', onKeyDown);
-  }, [onClose]);
+    return () => {
+      window.removeEventListener('keydown', onKeyDown);
+      document.getElementById('mobile-menu-toggle')?.focus();
+    };
+  }, [open, onClose]);
 
   return (
     <AnimatePresence>
       {open && (
         <motion.div
+          ref={menuRef}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Menú principal"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
           className="fixed inset-0 z-40 md:hidden"
         >
-          <button
-            type="button"
-            aria-label="Cerrar menú"
-            onClick={onClose}
-            className="absolute inset-0 bg-base/80 backdrop-blur-xl"
-          />
+          <div aria-hidden className="absolute inset-0 bg-base/95 backdrop-blur-xl" />
 
           <motion.nav
             aria-label="Principal móvil"
@@ -229,7 +254,7 @@ function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -16, opacity: 0 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex h-full flex-col justify-center gap-1 px-gutter"
+            className="relative flex h-full flex-col gap-1 overflow-y-auto px-gutter pt-28 pb-8"
           >
             {primaryNav.map((item, index) => (
               <motion.div
@@ -253,11 +278,26 @@ function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
               </motion.div>
             ))}
 
+            <Link
+              to="/#contacto"
+              onClick={onClose}
+              className="mt-4 inline-flex w-fit items-center gap-3 rounded-xl border border-line-strong px-5 py-3 text-moss-300"
+            >
+              Contacto <ArrowUpRight size={18} />
+            </Link>
+            <button
+              type="button"
+              onClick={onClose}
+              className="mt-5 inline-flex w-fit items-center gap-2 py-2 text-sm text-ink-secondary"
+            >
+              <X size={16} /> Cerrar menú
+            </button>
+
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.35 }}
-              className="text-pixel mt-8 text-[0.5625rem] text-moss-400"
+              className="mt-6 font-mono text-xs text-moss-300"
             >
               {site.motto}
             </motion.p>

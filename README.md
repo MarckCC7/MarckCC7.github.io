@@ -126,6 +126,21 @@ Todo el lenguaje visual sale de `src/styles/tokens.css`. Los tokens son variable
 tiempo real. Cambia un valor ahí y cambia el sitio completo — UI, ilustraciones y canvas
 incluidos. Nunca hardcodees un color en un componente.
 
+### Dirección visual
+
+La interfaz toma como referencia `mockup/mockup_jardin_digital.png`: fondo verde profundo,
+superficies de vidrio, bordes iluminados y pequeños jardines que conectan proyectos,
+certificados y publicaciones. Las cifras y etapas siempre salen de los datos reales.
+
+**Tipografía:** Manrope Variable para títulos, Inter Variable para lectura y JetBrains Mono
+para etiquetas. Press Start 2P queda como detalle del mundo pixel. Todas se sirven desde
+el propio sitio. Manrope da una forma más redondeada y contemporánea a la cabecera;
+Geist sería una alternativa más técnica y sobria si se quisiera revisar esa dirección.
+
+`src/styles/garden.css` define la composición de la portada. `tokens.css` mantiene la paleta
+compartida por ambos temas, las tarjetas y las plantas. Las herramientas adicionales se
+despliegan desde la portada; la experiencia y los idiomas completos están en `/about`.
+
 ---
 
 ## Arquitectura

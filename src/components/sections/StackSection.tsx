@@ -1,108 +1,71 @@
-import { motion } from 'framer-motion';
-
-import { RevealGroup, RevealItem, Reveal } from '@components/motion/Reveal';
+import { ChevronDown } from 'lucide-react';
+import type { CSSProperties } from 'react';
+import { RevealGroup, RevealItem } from '@components/motion/Reveal';
 import { GlassCard } from '@components/ui/GlassCard';
-import { PixelPlate } from '@components/ui/PixelPlate';
 import { Section } from '@components/ui/Section';
-import { SectionHeading } from '@components/ui/SectionHeading';
-import { categoryMeta, groupedStack, levelLabel } from '@data/stack';
-import { usePreferences } from '@hooks/usePreferences';
+import { SectionRail } from '@components/ui/SectionRail';
+import { stack, levelLabel } from '@data/stack';
 import type { StackItem } from '@/types';
 
-/**
- * The toolbox, grouped by what each tool is *for* rather than by popularity.
- *
- * Levels are shown as five small segments instead of a percentage bar: a
- * percentage implies a precision nobody actually has about their own skills.
- */
 export function StackSection() {
+  const core = stack.filter(
+    (item) => item.category === 'languages' || item.category === 'frontend',
+  );
+  const more = stack.filter(
+    (item) => item.category !== 'languages' && item.category !== 'frontend',
+  );
   return (
-    <Section id="stack">
-      <SectionHeading
-        eyebrow="02 · Mi stack"
-        title="Herramientas que uso, con el nivel real en el que estoy."
-        description="Los números son mi propia evaluación, y son deliberadamente conservadores. Prefiero que una entrevista confirme que sé más de lo que dice esta página, y no al revés."
+    <Section spacing="custom" id="stack" className="home-section">
+      <SectionRail
+        title="Lenguajes y herramientas"
+        description="Herramientas que uso, con el nivel real en el que estoy."
       />
-
-      <div className="mt-10 space-y-10">
-        {groupedStack().map(({ category, items }) => (
-          <div key={category}>
-            <Reveal>
-              <div className="mb-5 flex items-baseline gap-3">
-                <h3 className="font-display text-sm font-semibold tracking-tight text-ink">
-                  {categoryMeta[category].label}
-                </h3>
-                <span className="h-px flex-1 bg-line-subtle" />
-                <span className="text-xs text-ink-muted">{categoryMeta[category].caption}</span>
-              </div>
-            </Reveal>
-
-            <RevealGroup className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3" stagger={0.05}>
-              {items.map((item) => (
-                <RevealItem key={item.name}>
-                  <TechCard item={item} />
-                </RevealItem>
-              ))}
-            </RevealGroup>
-          </div>
+      <RevealGroup className="toolbox-grid" stagger={0.04}>
+        {core.map((item) => (
+          <RevealItem key={item.name}>
+            <TechCard item={item} />
+          </RevealItem>
         ))}
-      </div>
+      </RevealGroup>
+      {more.length > 0 && (
+        <details className="more-tools">
+          <summary>
+            También cultivo {more.map((item) => item.name).join(', ')}{' '}
+            <ChevronDown size={15} aria-hidden />
+          </summary>
+          <div className="toolbox-grid">
+            {more.map((item) => (
+              <TechCard key={item.name} item={item} />
+            ))}
+          </div>
+        </details>
+      )}
     </Section>
   );
 }
 
 function TechCard({ item }: { item: StackItem }) {
-  const { play } = usePreferences();
-
   return (
-    <GlassCard
-      className="group/tech h-full p-5 transition-transform duration-500 ease-garden hover:-translate-y-1"
-      spotlight
-    >
-      <div
-        onMouseEnter={() => play('hover')}
-        data-cursor="card"
-        className="flex h-full items-start gap-4"
-      >
-        <PixelPlate mark={item.mark} accent={item.accent} />
-
-        <div className="min-w-0 flex-1">
-          <div className="flex items-baseline justify-between gap-3">
-            <h4 className="font-display text-sm font-semibold tracking-tight text-ink">
-              {item.name}
-            </h4>
-            <span className="shrink-0 text-[0.6875rem] text-ink-muted">
-              {levelLabel[item.level]}
-            </span>
+    <GlassCard className="tech-card" spotlight>
+      <div className="tech-layout" style={{ '--tech-color': item.accent } as CSSProperties}>
+        <span className="tech-monogram" aria-hidden>
+          {item.mark}
+        </span>
+        <div className="tech-content">
+          <div className="tech-heading">
+            <h3>{item.name}</h3>
+            <span>{levelLabel[item.level]}</span>
           </div>
-
-          {/* Level: five segments, filled to the honest number. */}
           <div
-            className="mt-2.5 flex gap-1"
+            className="tech-level"
             role="img"
             aria-label={`Nivel ${item.level} de 5: ${levelLabel[item.level]}`}
           >
             {Array.from({ length: 5 }, (_, index) => (
-              <motion.span
-                key={index}
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.5,
-                  delay: 0.06 * index,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                style={{
-                  transformOrigin: 'left',
-                  backgroundColor: index < item.level ? item.accent : 'var(--line-default)',
-                }}
-                className="h-[3px] w-5 rounded-full"
-              />
+              <span key={index} className={index < item.level ? 'is-filled' : undefined} />
             ))}
           </div>
-
-          <p className="mt-3 text-[0.8125rem] leading-relaxed text-ink-secondary">{item.note}</p>
+          <p>{item.note}</p>
         </div>
       </div>
     </GlassCard>

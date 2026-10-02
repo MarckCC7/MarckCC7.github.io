@@ -162,10 +162,6 @@ export default defineConfig({
         manualChunks: {
           react: ['react', 'react-dom', 'react-router-dom'],
           motion: ['framer-motion'],
-          // Both entries, or Rollup emits the core and the plugin as two
-          // separate chunks that then have to round-trip the network twice.
-          // This chunk is async-only — see the note in `src/lib/gsap.ts`.
-          gsap: ['gsap', 'gsap/ScrollTrigger'],
         },
       },
     },

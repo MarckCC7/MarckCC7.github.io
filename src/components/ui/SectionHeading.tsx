@@ -35,7 +35,7 @@ export function SectionHeading({
   return (
     <div className={cn('flex flex-col gap-5', centred && 'items-center text-center', className)}>
       <Reveal>
-        <span className="text-pixel inline-flex items-center gap-2.5 text-[0.5625rem] text-moss-300">
+        <span className="section-kicker inline-flex items-center gap-2.5 text-moss-300">
           <span aria-hidden className="h-px w-6 bg-moss-400/50" />
           {eyebrow}
         </span>

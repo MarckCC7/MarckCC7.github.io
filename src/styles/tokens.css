@@ -13,29 +13,30 @@
   color-scheme: dark;
 
   /* — Surfaces: soil at night ————————————————————————————————— */
-  --surface-base: #070908;
-  --surface-raised: #0c100e;
-  --surface-elevated: #121714;
-  --surface-overlay: #171d1a;
+  --surface-base: #060f0c;
+  --surface-raised: #0b1b15;
+  --surface-elevated: #10271f;
+  --surface-overlay: #173329;
 
   /* — Text ————————————————————————————————————————————————— */
-  --text-primary: #ecf1ee;
-  --text-secondary: #97a39d;
-  --text-muted: #67736d;
+  --text-primary: #eef7f2;
+  --text-secondary: #afc2b9;
+  --text-muted: #8ca69b;
+  --text-display-subtle: #8dab9e;
   --text-inverse: #0a0d0c;
 
   /* — Hairlines ———————————————————————————————————————————— */
-  --line-subtle: rgb(236 241 238 / 6%);
-  --line-default: rgb(236 241 238 / 10%);
-  --line-strong: rgb(236 241 238 / 18%);
+  --line-subtle: rgb(133 216 181 / 12%);
+  --line-default: rgb(133 216 181 / 22%);
+  --line-strong: rgb(133 216 181 / 40%);
 
   /* — Moss: growth, the garden, "learned" ————————————————————— */
   --moss-50: #f0f8f3;
   --moss-100: #dcefe4;
   --moss-200: #b8deca;
-  --moss-300: #8fcaac;
-  --moss-400: #66b38c;
-  --moss-500: #45996f;
+  --moss-300: #9be7c7;
+  --moss-400: #66d5ad;
+  --moss-500: #3aaa83;
   --moss-600: #327c58;
   --moss-700: #245f43;
 
@@ -43,7 +44,7 @@
   --azure-200: #c3d6ff;
   --azure-300: #9cbaff;
   --azure-400: #7a9eff;
-  --azure-500: #5b84fb;
+  --azure-500: #3865e5;
   --azure-600: #4066dc;
   --azure-700: #2e4cae;
 
@@ -66,23 +67,24 @@
   --graphite-950: #0d100e;
 
   /* — Glass ———————————————————————————————————————————————— */
-  --glass-fill: rgb(236 241 238 / 3.5%);
-  --glass-fill-strong: rgb(236 241 238 / 6%);
-  --glass-border: rgb(236 241 238 / 9%);
-  --glass-highlight: rgb(255 255 255 / 7%);
+  --glass-fill: rgb(12 30 23 / 76%);
+  --glass-fill-strong: rgb(14 35 27 / 94%);
+  --glass-border: rgb(133 216 181 / 20%);
+  --glass-highlight: rgb(143 237 199 / 12%);
+  --surface-sheen: rgb(99 225 173 / 8%);
 
   /* — Elevation ——————————————————————————————————————————— */
-  --shadow-glass: inset 0 1px 0 0 var(--glass-highlight), 0 24px 60px -28px rgb(0 0 0 / 82%);
+  --shadow-glass: inset 0 1px 0 0 var(--glass-highlight), 0 12px 32px -24px rgb(0 0 0 / 65%);
   --shadow-lift: 0 34px 68px -30px rgb(0 0 0 / 88%);
   --shadow-glow: 0 0 0 1px rgb(91 132 251 / 30%), 0 20px 48px -20px rgb(91 132 251 / 52%);
   --shadow-glow-moss: 0 0 0 1px rgb(143 202 172 / 26%), 0 20px 48px -20px rgb(102 179 140 / 44%);
 
   /* — Ambient light: drives the animated background ——————————— */
-  --ambient-a: rgb(102 179 140 / 16%);
-  --ambient-b: rgb(91 132 251 / 14%);
-  --ambient-c: rgb(143 202 172 / 8%);
-  --grain-opacity: 0.032;
-  --particle-alpha: 0.5;
+  --ambient-a: rgb(68 190 143 / 20%);
+  --ambient-b: rgb(57 132 116 / 12%);
+  --ambient-c: rgb(106 209 165 / 12%);
+  --grain-opacity: 0.018;
+  --particle-alpha: 0.55;
 
   /* — Typography ——————————————————————————————————————————
      `-apple-system` sits early on purpose: Apple devices render SF Pro
@@ -91,7 +93,7 @@
     'Inter Variable', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', system-ui,
     sans-serif;
   --font-display:
-    'Geist Variable', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter Variable',
+    'Manrope Variable', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter Variable',
     system-ui, sans-serif;
   --font-mono: 'JetBrains Mono Variable', ui-monospace, SFMono-Regular, Menlo, monospace;
   --font-pixel: 'Press Start 2P', 'Courier New', monospace;
@@ -116,7 +118,8 @@
 
   --text-primary: #101613;
   --text-secondary: #4c5a54;
-  --text-muted: #77837d;
+  --text-muted: #596e61;
+  --text-display-subtle: #4e705e;
   --text-inverse: #f7faf8;
 
   --line-subtle: rgb(16 22 19 / 7%);
@@ -152,6 +155,7 @@
   --glass-fill-strong: rgb(255 255 255 / 82%);
   --glass-border: rgb(16 22 19 / 8%);
   --glass-highlight: rgb(255 255 255 / 90%);
+  --surface-sheen: rgb(58 170 131 / 7%);
 
   --shadow-glass: inset 0 1px 0 0 var(--glass-highlight), 0 18px 44px -26px rgb(16 22 19 / 22%);
   --shadow-lift: 0 28px 56px -30px rgb(16 22 19 / 26%);
