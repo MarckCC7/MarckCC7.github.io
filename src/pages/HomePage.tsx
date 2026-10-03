@@ -1,5 +1,6 @@
 import { Seo } from '@components/seo/Seo';
 import { AboutSection } from '@components/sections/AboutSection';
+import { ArtisticSection } from '@components/sections/ArtisticSection';
 import { CertificatesSection } from '@components/sections/CertificatesSection';
 import { ContactSection } from '@components/sections/ContactSection';
 import { Hero } from '@components/sections/Hero';
@@ -25,6 +26,7 @@ export function HomePage() {
 
       <Hero />
       <AboutSection />
+      <ArtisticSection />
       <StackSection />
       <GardenOverview />
       <ProjectsSection />

@@ -9,6 +9,8 @@ Analizo sistemas, diseño soluciones y construyo productos que resuelven problem
 
 > *Hazlo con pasión o no lo hagas.*
 
+💃 Cuando no estoy programando, bailo marinera y danzas peruanas. [Conoce mi portafolio artístico →](https://mcollado-marinera-arequipa.vercel.app)
+
 ### 🌱 [Entra a mi jardín digital →](https://marckcc7.github.io)
 
 <sub>No es un portafolio. Es un jardín: cada proyecto es una planta, cada certificado un árbol,<br/>cada publicación una flor. Se ve inacabado a propósito, porque lo está.</sub>
@@ -112,6 +114,9 @@ se queden tranquilas.
 
 - 🥉 **Tercer puesto — TURISTON 2026**, hackathon de innovación turística
 - 🌐 **CCNA: Introduction to Networks** — Cisco Networking Academy
+- 🌟 **Alumno destacado — periodo 2026-II**, Universidad La Salle
+- 📊 **Constancia de participación — Evento PMI**, Universidad La Salle
+- 🥈 **Segundo puesto — IDEATÓN 2025**, organizada por 13 Monjas en la Universidad La Salle
 
 **Idiomas**
 
