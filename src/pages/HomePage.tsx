@@ -26,12 +26,12 @@ export function HomePage() {
 
       <Hero />
       <AboutSection />
-      <ArtisticSection />
       <StackSection />
       <GardenOverview />
       <ProjectsSection />
       <CertificatesSection />
       <UpdatesSection />
+      <ArtisticSection />
       <RoadmapSection />
       <PhilosophySection />
       <ContactSection />
