@@ -1,5 +1,4 @@
-/* The illuminated glass garden: layout follows mockup/mockup_jardin_digital.png.
-   All surfaces share the semantic palette so light mode stays a first-class theme. */
+/* The illuminated glass garden uses the semantic palette so light mode stays a first-class theme. */
 @layer components {
   .garden-navbar {
     box-shadow:

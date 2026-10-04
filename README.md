@@ -128,9 +128,9 @@ incluidos. Nunca hardcodees un color en un componente.
 
 ### Dirección visual
 
-La interfaz toma como referencia `mockup/mockup_jardin_digital.png`: fondo verde profundo,
-superficies de vidrio, bordes iluminados y pequeños jardines que conectan proyectos,
-certificados y publicaciones. Las cifras y etapas siempre salen de los datos reales.
+La interfaz sigue una dirección de jardín digital iluminado: fondo verde profundo, superficies
+de vidrio, bordes iluminados y pequeños jardines que conectan proyectos, certificados y
+publicaciones. Las cifras y etapas siempre salen de los datos reales.
 
 **Tipografía:** Manrope Variable para títulos, Inter Variable para lectura y JetBrains Mono
 para etiquetas. Press Start 2P queda como detalle del mundo pixel. Todas se sirven desde
