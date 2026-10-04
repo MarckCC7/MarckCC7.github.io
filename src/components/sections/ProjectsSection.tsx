@@ -1,5 +1,4 @@
 import { ProjectCard } from '@components/cards/ProjectCard';
-import { RevealGroup, RevealItem } from '@components/motion/Reveal';
 import { Section } from '@components/ui/Section';
 import { SectionRail } from '@components/ui/SectionRail';
 import { projects } from '@data/projects';
@@ -14,13 +13,13 @@ export function ProjectsSection() {
         title="Proyectos"
         description="Sistemas públicos y privados, productos desplegados e ideas que sigo cultivando."
       />
-      <RevealGroup className="projects-grid" stagger={0.06}>
+      <div className="projects-grid">
         {ordered.map((project) => (
-          <RevealItem key={project.slug} className="h-full">
+          <div key={project.slug} className="h-full">
             <ProjectCard project={project} />
-          </RevealItem>
+          </div>
         ))}
-      </RevealGroup>
+      </div>
     </Section>
   );
 }
